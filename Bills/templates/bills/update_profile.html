@@ -1,0 +1,37 @@
+{% extends 'bills/Base.html' %}
+{% load crispy_forms_tags %}
+{% block update_profile %}
+
+
+
+<div class="container">
+    
+    <div class="row alert alertbg mt-2 text-center">
+        <div class="col-sm-1"><a href="{% url 'customer_dashboard' id %}" class="btn btn-primary mt-2" ><i class="bi bi-house-door"></i> Home</a></div>
+        <div class="col-sm-10 mt-2"><h4 class="">Update Your Profile</h4></div>
+      <div class="col-sm-1"></div>
+      </div>
+      
+    <form action="" method="post">{% csrf_token %}
+    <h6 class="form_heading mt-2" >Customer Details</h6>
+    <div class="row">
+        <div class="col-sm-12">{{fm|crispy}}</div>
+    </div>
+   
+    <div class="row text-center">
+        <div class="col-sm-12">
+        <input type="submit" value="Update Now" class="btn btnbg px-5 py-2">
+    </div>
+    </div>
+</form>
+</div>
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script>
+    {% for msg in messages %}
+    swal("Done", "{{msg}}", "success");
+  {% endfor %}
+  </script>
+  
+{% endblock update_profile %}

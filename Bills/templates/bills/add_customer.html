@@ -1,0 +1,38 @@
+{% extends 'bills/Base.html' %}
+{% load crispy_forms_tags %}
+{% block manage_customer %}
+<div class="container">
+    <h4 class="alert alertbg mt-2 text-center">Manage Customer</h4>
+    <form action="" method="post">{% csrf_token %}
+      <div class="row">
+        <div class="col-sm-12">{{fm.branch|as_crispy_field}}</div>
+    </div> 
+    <div class="row">
+        <div class="col-sm-6">{{fm.cust_name|as_crispy_field}}</div>
+        <div class="col-sm-6">{{fm.cust_mobile|as_crispy_field}}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">{{fm.cust_village|as_crispy_field}}</div>
+        <div class="col-sm-6">{{fm.cust_taluka|as_crispy_field}}</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">{{fm.cust_dist|as_crispy_field}}</div>
+        <div class="col-sm-6">{{fm.cust_pin_code|as_crispy_field}}</div>
+    </div>
+    <center>
+    <input type="submit" value="Submit" class="btn btnbg text-center px-5 mt-2">
+    </center>
+</form>
+<br>
+
+</div>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script>
+    {% for msg in messages %}
+    swal("Done", "{{msg}}", "success");
+  {% endfor %}
+  </script>
+
+
+{% endblock manage_customer %}

@@ -1,0 +1,265 @@
+
+{% load static %}
+<html>
+    <head>
+        <title>Print Invoice</title>
+    </head>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<style>
+    *{
+        font-family: 'Karla', sans-serif;
+    }
+    .logo{
+        width:90%;
+    }
+    h2{
+        font-family: 'Secular One', sans-serif;
+    }
+ 
+</style>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center" style="border:2px solid black; border-bottom:none;"><b>TAX INVOICE</b></div>
+        </div>
+
+        <div class="row " style="border:2px solid black; ">
+            <div class="col-sm-2 text-right"  >
+                <img src="{% static 'images/logo1.png' %}" alt="" class="logo">
+            </div>
+            <div class="col-sm-8 text-center" class="" >
+                <h2 class="mt-2">SAIGANGA ENTERPRISES</h2> 
+             {% if data.branch == "Vaijapur" %} subhadra complex,ladgaon road, vaijapur, Ta.Vaijapur, Dist,Aurangabad,423701 {% else %}Near HP Petrol Pump,Aurangabad Road, Gangapur {% endif %}  <br>
+             Mob No :- 9158593660/9021173110 GSTIN No :- 27COKPKL924H1ZV
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+
+        <div class="row" style="border:2px solid black; border-top:none; pt-2 ">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5"> INVOICE NO :-  {% if data.inv_no %}<b>{{data.inv_no}}{% endif %}</b> </div>
+            <div class="col-sm-5 text-right">Date :- {% if data.inv_date %} <b>{{data.inv_date}}</b>{% endif %} </div>
+            <div class="col-sm-1"></div>
+        </div>
+
+        <div class="row" style="border:2px solid black; border-top:none;  padding-top:5px;">
+            <div class="col-sm-1 "></div>
+            <div class="col-sm-6"  style="border-right:2px solid black;  ">
+                Name : <b> {{data.cust_name}} </b> <br>
+                Mobile No : <b> {{data.cust_mobile}}</b><br>
+                Village : <b> {{data.cust_village}}</b><br>
+                Taluka :<b> {{data.cust_taluka}}</b> <br>
+                Dist :<b>{{data.cust_dist}} </b> <br>
+                State :<b> Maharashtra</b> <br>
+                Pin Code :<b>{{data.cust_pin_code}} </b>
+               
+            </div>
+            <div class="col-sm-4 text-center" style="">
+                Supplier Ref <br>
+               <b><h4> Saiganga Enterprises</h4></b> <br>
+              {% if data.other_reference %} Other Ref <br>
+               <b>{{data.other_reference}}</b> {% endif %}
+            </div>
+
+        </div>
+
+
+        <div class="row text-center"  style="border:2px solid black; border-top:none; padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black;"><b> Sr.No </b></div>
+            <div class="col-sm-4" style="border-right:2px solid black;"><b> Description </b></div>
+            <div class="col-sm-2" style="border-right:2px solid black;"><b> Chessis/Engine No </b></div>
+            <div class="col-sm-1" style="border-right:2px solid black;"><b> Qty </b></div>
+            <div class="col-sm-2" style="border-right:2px solid black; "><b> Rate </b></div>
+            <div class="col-sm-2" style=""><b> Amount </b></div>
+        </div> 
+        
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black; padding-top:3px; padding-bottom:3px " >
+            <div class="col-sm-1" style="border-right:2px solid black;">{% if data.inv_amount_1 %}1 {% else %} <i style='color:white;'> &nbsp;</i> {% endif %}</div>
+            <div class="col-sm-4" style="border-right:2px solid black;">{% if data.inv_description_1 %}{{data.inv_description_1}}  {% endif %} </div>
+            <div class="col-sm-2" style="border-right:2px solid black;">{% if data.inv_chessis_1  %}{{data.inv_chessis_1}}{% endif %} {% if data.inv_engine_1  %}{{data.inv_engine_1}}{% endif %} </div>
+            <div class="col-sm-1" style="border-right:2px solid black;">{% if data.inv_amount_1 %}{{data.inv_qty_1}}  {% endif %}</div>
+            <div class="col-sm-2" style="border-right:2px solid black; ">{% if data.inv_rate_1 %}{{data.inv_rate_1}}0  {% endif %}</div>
+            <div class="col-sm-2" style="">{% if data.inv_amount_1 %}{{data.inv_amount_1}}0  {% endif %}</div>
+        </div>
+         
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black; padding-top:3px; padding-bottom:3px " >
+            <div class="col-sm-1" style="border-right:2px solid black;">{% if data.inv_amount_2 %}2 {% else %} <i style='color:white;'> &nbsp;</i> {% endif %}</div>
+            <div class="col-sm-4" style="border-right:2px solid black;">{% if data.inv_description_2 %}{{data.inv_description_2}}  {% endif %} </div>
+            <div class="col-sm-2" style="border-right:2px solid black;">{% if data.inv_chessis_2  %}{{data.inv_chessis_2}}{% endif %} {% if data.inv_engine_2  %}{{data.inv_engine_2}}{% endif %} </div>
+            <div class="col-sm-1" style="border-right:2px solid black;">{% if data.inv_amount_2 %}{{data.inv_qty_2}}  {% endif %}</div>
+            <div class="col-sm-2" style="border-right:2px solid black; ">{% if data.inv_rate_2 %}{{data.inv_rate_2}}0  {% endif %}</div>
+            <div class="col-sm-2" style="">{% if data.inv_amount_2 %}{{data.inv_amount_2}}0  {% endif %}</div>
+        </div>
+  
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black; padding-top:3px; padding-bottom:3px " >
+            <div class="col-sm-1" style="border-right:2px solid black;">{% if data.inv_amount_3 %}3 {% else %} <i style='color:white;'> &nbsp;</i> {% endif %}</div>
+            <div class="col-sm-4" style="border-right:2px solid black;">{% if data.inv_description_3 %}{{data.inv_description_3}}  {% endif %} </div>
+            <div class="col-sm-2" style="border-right:2px solid black;">{% if data.inv_chessis_3  %}{{data.inv_chessis_3}}{% endif %} {% if data.inv_engine_3  %}{{data.inv_engine_3}}{% endif %} </div>
+            <div class="col-sm-1" style="border-right:2px solid black;">{% if data.inv_amount_3 %}{{data.inv_qty_3}}  {% endif %}</div>
+            <div class="col-sm-2" style="border-right:2px solid black; ">{% if data.inv_rate_3 %}{{data.inv_rate_3}}0  {% endif %}</div>
+            <div class="col-sm-2" style="">{% if data.inv_amount_3 %}{{data.inv_amount_3}}0  {% endif %}</div>
+        </div>
+  
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black; padding-top:3px; padding-bottom:3px " >
+            <div class="col-sm-1" style="border-right:2px solid black;">{% if data.inv_amount_4 %}4 {% else %} <i style='color:white;'> &nbsp;</i> {% endif %}</div>
+            <div class="col-sm-4" style="border-right:2px solid black;">{% if data.inv_description_4 %}{{data.inv_description_4}}  {% endif %} </div>
+            <div class="col-sm-2" style="border-right:2px solid black;">{% if data.inv_chessis_4  %}{{data.inv_chessis_4}}{% endif %} {% if data.inv_engine_4  %}{{data.inv_engine_4}}{% endif %} </div>
+            <div class="col-sm-1" style="border-right:2px solid black;">{% if data.inv_amount_4 %}{{data.inv_qty_4}}  {% endif %}</div>
+            <div class="col-sm-2" style="border-right:2px solid black; ">{% if data.inv_rate_4 %}{{data.inv_rate_4}}0  {% endif %}</div>
+            <div class="col-sm-2" style="">{% if data.inv_amount_4 %}{{data.inv_amount_4}}0  {% endif %}</div>
+        </div>
+  
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black; padding-top:3px; padding-bottom:3px " >
+            <div class="col-sm-1" style="border-right:2px solid black;">{% if data.inv_amount_5 %}5 {% else %} <i style='color:white;'> &nbsp;</i> {% endif %}</div>
+            <div class="col-sm-4" style="border-right:2px solid black;">{% if data.inv_description_5 %}{{data.inv_description_5}}  {% endif %} </div>
+            <div class="col-sm-2" style="border-right:2px solid black;">{% if data.inv_chessis_5  %}{{data.inv_chessis_5}}{% endif %} {% if data.inv_engine_5  %}{{data.inv_engine_5}}{% endif %} </div>
+            <div class="col-sm-1" style="border-right:2px solid black;">{% if data.inv_amount_5 %}{{data.inv_qty_5}}  {% endif %}</div>
+            <div class="col-sm-2" style="border-right:2px solid black; ">{% if data.inv_rate_5 %}{{data.inv_rate_5}}0  {% endif %}</div>
+            <div class="col-sm-2" style="">{% if data.inv_amount_5 %}{{data.inv_amount_5}}0  {% endif %}</div>
+        </div>
+  
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black; padding-top:3px; padding-bottom:3px " >
+            <div class="col-sm-1" style="border-right:2px solid black;">{% if data.inv_amount_6 %}6 {% else %} <i style='color:white;'> &nbsp;</i> {% endif %}</div>
+            <div class="col-sm-4" style="border-right:2px solid black;">{% if data.inv_description_6 %}{{data.inv_description_6}}  {% endif %} </div>
+            <div class="col-sm-2" style="border-right:2px solid black;">{% if data.inv_chessis_6  %}{{data.inv_chessis_6}}{% endif %} {% if data.inv_engine_6  %}{{data.inv_engine_6}}{% endif %} </div>
+            <div class="col-sm-1" style="border-right:2px solid black;">{% if data.inv_amount_6 %}{{data.inv_qty_6}}  {% endif %}</div>
+            <div class="col-sm-2" style="border-right:2px solid black; ">{% if data.inv_rate_6 %}{{data.inv_rate_6}}0  {% endif %}</div>
+            <div class="col-sm-2" style="">{% if data.inv_amount_6 %}{{data.inv_amount_6}}0  {% endif %}</div>
+        </div>
+ 
+ 
+       
+        
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black;  padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black; color:white"> &nbsp;</div>
+            <div class="col-sm-4" style="border-right:2px solid black;"></div>
+            <div class="col-sm-2" style="border-right:2px solid black;"></div>
+            <div class="col-sm-1" style="border-right:2px solid black;"></div>
+            <div class="col-sm-2 text-right" style="border-right:2px solid black; "></div>
+            <div class="col-sm-2" style=""><b></b></div>
+        </div>
+        
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black;  padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black; color:white"> &nbsp;</div>
+            <div class="col-sm-4" style="border-right:2px solid black;"></div>
+            <div class="col-sm-2" style="border-right:2px solid black;"></div>
+            <div class="col-sm-1" style="border-right:2px solid black;"></div>
+            <div class="col-sm-2 text-right" style="border-right:2px solid black; "></div>
+            <div class="col-sm-2" style=""><b></b></div>
+        </div>
+        
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black;  padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black; color:white"> &nbsp;</div>
+            <div class="col-sm-4" style="border-right:2px solid black;"></div>
+            <div class="col-sm-2" style="border-right:2px solid black;"></div>
+            <div class="col-sm-1" style="border-right:2px solid black;"></div>
+            <div class="col-sm-2 text-right" style="border-right:2px solid black; "></div>
+            <div class="col-sm-2" style=""><b></b></div>
+        </div>
+        
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black;  padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black; color:white"> &nbsp;</div>
+            <div class="col-sm-4" style="border-right:2px solid black;"></div>
+            <div class="col-sm-2" style="border-right:2px solid black;"></div>
+            <div class="col-sm-1" style="border-right:2px solid black;"></div>
+            <div class="col-sm-2 text-right" style="border-right:2px solid black; "></div>
+            <div class="col-sm-2" style=""><b></b></div>
+        </div>
+        
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black;  padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black; color:white"> &nbsp;</div>
+            <div class="col-sm-4" style="border-right:2px solid black;"></div>
+            <div class="col-sm-2" style="border-right:2px solid black;"></div>
+            <div class="col-sm-1" style="border-right:2px solid black;"></div>
+            <div class="col-sm-2 text-right" style="border-right:2px solid black; "></div>
+            <div class="col-sm-2" style=""><b></b></div>
+        </div>
+
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black;  padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black;"></div>
+            <div class="col-sm-4" style="border-right:2px solid black;"></div>
+            <div class="col-sm-2" style="border-right:2px solid black;"></div>
+            <div class="col-sm-1" style="border-right:2px solid black;"></div>
+            <div class="col-sm-2 text-right" style="border-right:2px solid black; ">Sub Total</div>
+            <div class="col-sm-2" style=""><b>{% if data.inv_sub_total %} {{data.inv_sub_total}}0{% endif %}</b></div>
+        </div>
+
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black;  padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black;"></div>
+            <div class="col-sm-4" style="border-right:2px solid black;"></div>
+            <div class="col-sm-2" style="border-right:2px solid black;"></div>
+            <div class="col-sm-1" style="border-right:2px solid black;"></div>
+            <div class="col-sm-2 text-right" style="border-right:2px solid black; ">CGST 6%</div>
+            <div class="col-sm-2" style="">{% if data.inv_cgst %}<b>{{data.inv_cgst}}0</b>{% endif %}</div>
+        </div>
+        
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black;  padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black;"></div>
+            <div class="col-sm-4" style="border-right:2px solid black;"></div>
+            <div class="col-sm-2" style="border-right:2px solid black;"></div>
+            <div class="col-sm-1" style="border-right:2px solid black;"></div>
+            <div class="col-sm-2 text-right" style="border-right:2px solid black; ">SGST 6%</div>
+            <div class="col-sm-2" style=""><b>{% if data.inv_sgst %} {{data.inv_sgst}}0{% endif %} </b></div>
+        </div>
+        
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black;  padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black;"></div>
+            <div class="col-sm-4" style="border-right:2px solid black;"></div>
+            <div class="col-sm-2" style="border-right:2px solid black;"></div>
+            <div class="col-sm-1" style="border-right:2px solid black;"></div>
+            <div class="col-sm-2 text-right" style="border-right:2px solid black; ">RTO</div>
+            <div class="col-sm-2" style=""><b>{% if data.inv_rto %} {{data.inv_rto}}0{% endif %} </b></div>
+        </div>
+ 
+        <div class="row text-center"  style="border:2px solid black;  " >
+            <div class="col-sm-1" style="border-right:2px solid black;"></div>
+            <div class="col-sm-4" style="border-right:2px solid black;"></div>
+            <div class="col-sm-2" style="border-right:2px solid black;"></div>
+            <div class="col-sm-1" style="border-right:2px solid black;"></div>
+            <div class="col-sm-2" style="border-right:2px solid black; ">Total</div>
+            <div class="col-sm-2" style=""><b>{% if data.inv_grand_total %} {{data.inv_grand_total}}0{% endif %} </b></div>
+        </div>
+
+        <div class="row" style="border:2px solid black; border-top:none;">
+            <div class="col-sm-1" ></div>
+                <div class="col-sm-11" >
+                Amount in Word : <b>{{data.inv_amt_in_word}}</b>
+            </div>
+        </div>
+
+        <div class="row text-center" style="border:2px solid black; border-top:none;">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10 text-justify"><br>
+                “I/We hereby certify that my/our registration certificateunder the Maharashtra value
+added Tax Act-2002 is in force on the date on which the sale of the goods specified in
+the tax invoice a made by me/us and the transaction of sale covered by this tax invoice
+has been effected by me/us and it shall be accounted for the turnover of sale while filling
+of return and the due tax if any payable on the sale has been paid or shall be paid
+GST No.27COKPK1924H1ZV <br><br>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+
+
+
+        <div class="row text-center"  style="border:2px solid black; border-top:none;">
+            <div class="col-sm-6"><br><b><h5>Receiver's Signature</h5></b> </div>
+            <div class="col-sm-6"><br><b><h5>For Saiganga Interprises</h5></b> </div>
+        </div>
+
+            <div class="row text-center"  style="border:2px solid black; border-top:none;">
+                <div class="col-sm-6"></div>
+                <div class="col-sm-6">Authorised Signature <br><br><br></div>
+            </div>
+            
+    </div>
+    <center><pre style='border:none'>this is computer generated bill</pre>
+    <br>
+    <button onclick="window.print()" class='btn btn-success'>Print</button>
+    </center>
+</body>
+</html>

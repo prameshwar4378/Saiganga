@@ -1,0 +1,2198 @@
+{% extends 'bills/Base.html' %}
+{% load crispy_forms_tags %}
+
+{% block margin_money %}
+<form action="{% url 'margin_money' id %}" method="post">{% csrf_token %}
+      <div class="container">
+     
+<div class="row alert alertbg mt-2 text-center">
+  <div class="col-sm-1"><a href="{% url 'customer_dashboard' id %}" class="btn btn-primary mt-2" ><i class="bi bi-house-door"></i> Home</a></div>
+  <div class="col-sm-1"><a href="" class="btn btn-warning mt-2"><i class="bi bi-arrow-clockwise"></i> Refresh</a></div>
+  <div class="col-sm-9 mt-2"><h4 class="">Make Print</h4></div>
+<div class="col-sm-1"></div>
+</div>
+
+        {% comment %} {% if messages %}
+        <h6 class="alert alert-success mt-2 text-center">Record Updated success</h6>
+        {% endif %} {% endcomment %}
+
+        <form action="" method="post">{% csrf_token %}
+          <h6 class="form_heading mt-2" >Customer Details</h6>
+          <div class="row">
+              <div class="col-sm-6">{{fm.cust_name|as_crispy_field}}</div>
+              <div class="col-sm-6">{{fm.cust_mobile|as_crispy_field}}</div>
+          </div>
+          <div class="row">
+              <div class="col-sm-4">{{fm.cust_village|as_crispy_field}}</div>
+              <div class="col-sm-4">{{fm.cust_taluka|as_crispy_field}}</div>
+              <div class="col-sm-4">{{fm.cust_dist|as_crispy_field}}</div>
+          </div>
+  
+
+      
+          <h6 class="form_heading mt-2" >Basic Details</h6>
+         <div class="row">
+              <div class="col-sm-6">{{fm.mrm_no|as_crispy_field}}</div>
+              <div class="col-sm-6">{{fm.mrm_total_amt|as_crispy_field}}</div>
+          </div>
+
+
+
+          <h6 class="form_heading mt-2" >Record 1</h6>
+          <div class="row">
+            <div class="col-sm-4">{{fm.mrm_date1|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amount1|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amt_in_word1|as_crispy_field}}</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">{{fm.mrm_region1|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_payment_mode1|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_hyp1|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_remark1|as_crispy_field}}</div>
+          </div>
+          
+          
+
+
+{% if data.mrm_amount1 %}
+          <h6 class="form_heading mt-2" >Record 2</h6>
+          <div class="row">
+            <div class="col-sm-4">{{fm.mrm_date2|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amount2|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amt_in_word2|as_crispy_field}}</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">{{fm.mrm_region2|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_payment_mode2|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_hyp2|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_remark2|as_crispy_field}}</div>
+          </div>
+{% endif %}         
+          
+
+
+
+{% if data.mrm_amount2 %}
+          <h6 class="form_heading mt-2" >Record 3</h6>
+          <div class="row">
+            <div class="col-sm-4">{{fm.mrm_date3|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amount3|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amt_in_word3|as_crispy_field}}</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">{{fm.mrm_region3|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_payment_mode3|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_hyp3|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_remark3|as_crispy_field}}</div>
+          </div>
+{% endif %}         
+          
+          
+
+
+
+{% if data.mrm_amount3 %}
+          <h6 class="form_heading mt-2" >Record 4</h6>
+          <div class="row">
+            <div class="col-sm-4">{{fm.mrm_date4|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amount4|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amt_in_word4|as_crispy_field}}</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">{{fm.mrm_region4|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_payment_mode4|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_hyp4|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_remark4|as_crispy_field}}</div>
+          </div>
+{% endif %}         
+          
+
+
+
+{% if data.mrm_amount4 %}
+          <h6 class="form_heading mt-2" >Record 5</h6>
+          <div class="row">
+            <div class="col-sm-4">{{fm.mrm_date5|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amount5|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amt_in_word5|as_crispy_field}}</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">{{fm.mrm_region5|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_payment_mode5|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_hyp5|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_remark5|as_crispy_field}}</div>
+          </div>
+{% endif %}         
+          
+  
+
+
+{% if data.mrm_amount5 %}
+<h6 class="form_heading mt-2" >Record 6</h6>
+<div class="row">
+  <div class="col-sm-4">{{fm.mrm_date6|as_crispy_field}}</div>
+  <div class="col-sm-4">{{fm.mrm_amount6|as_crispy_field}}</div>
+  <div class="col-sm-4">{{fm.mrm_amt_in_word6|as_crispy_field}}</div>
+</div>
+<div class="row">
+  <div class="col-sm-3">{{fm.mrm_region6|as_crispy_field}}</div>
+  <div class="col-sm-3">{{fm.mrm_payment_mode6|as_crispy_field}}</div>
+  <div class="col-sm-3">{{fm.mrm_hyp6|as_crispy_field}}</div>
+  <div class="col-sm-3">{{fm.mrm_remark6|as_crispy_field}}</div>
+</div>
+{% endif %}         
+
+
+
+
+{% if data.mrm_amount6 %}
+          <h6 class="form_heading mt-2" >Record 7</h6>
+          <div class="row">
+            <div class="col-sm-4">{{fm.mrm_date7|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amount7|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amt_in_word7|as_crispy_field}}</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">{{fm.mrm_region7|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_payment_mode7|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_hyp7|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_remark7|as_crispy_field}}</div>
+          </div>
+{% endif %}         
+          
+  
+
+
+{% if data.mrm_amount7 %}
+<h6 class="form_heading mt-2" >Record 8</h6>
+<div class="row">
+  <div class="col-sm-4">{{fm.mrm_date8|as_crispy_field}}</div>
+  <div class="col-sm-4">{{fm.mrm_amount8|as_crispy_field}}</div>
+  <div class="col-sm-4">{{fm.mrm_amt_in_word8|as_crispy_field}}</div>
+</div>
+<div class="row">
+  <div class="col-sm-3">{{fm.mrm_region8|as_crispy_field}}</div>
+  <div class="col-sm-3">{{fm.mrm_payment_mode8|as_crispy_field}}</div>
+  <div class="col-sm-3">{{fm.mrm_hyp8|as_crispy_field}}</div>
+  <div class="col-sm-3">{{fm.mrm_remark8|as_crispy_field}}</div>
+</div>
+{% endif %}         
+
+
+
+
+{% if data.mrm_amount8 %}
+          <h6 class="form_heading mt-2" >Record 9</h6>
+          <div class="row">
+            <div class="col-sm-4">{{fm.mrm_date9|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amount9|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amt_in_word9|as_crispy_field}}</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">{{fm.mrm_region9|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_payment_mode9|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_hyp9|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_remark9|as_crispy_field}}</div>
+          </div>
+{% endif %}         
+          
+  
+
+
+{% if data.mrm_amount9 %}
+          <h6 class="form_heading mt-2" >Record 10</h6>
+          <div class="row">
+            <div class="col-sm-4">{{fm.mrm_date10|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amount10|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amt_in_word10|as_crispy_field}}</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">{{fm.mrm_region10|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_payment_mode10|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_hyp10|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_remark10|as_crispy_field}}</div>
+          </div>
+{% endif %}         
+          
+  
+
+
+{% if data.mrm_amount10 %}
+          <h6 class="form_heading mt-2" >Record 11</h6>
+          <div class="row">
+            <div class="col-sm-4">{{fm.mrm_date11|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amount11|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amt_in_word11|as_crispy_field}}</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">{{fm.mrm_region11|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_payment_mode11|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_hyp11|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_remark11|as_crispy_field}}</div>
+          </div>
+{% endif %}         
+          
+  
+
+
+{% if data.mrm_amount11 %}
+          <h6 class="form_heading mt-2" >Record 12</h6>
+          <div class="row">
+            <div class="col-sm-4">{{fm.mrm_date12|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amount12|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amt_in_word12|as_crispy_field}}</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">{{fm.mrm_region12|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_payment_mode12|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_hyp12|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_remark12|as_crispy_field}}</div>
+          </div>
+{% endif %}         
+          
+  
+
+
+{% if data.mrm_amount12 %}
+          <h6 class="form_heading mt-2" >Record 13</h6>
+          <div class="row">
+            <div class="col-sm-4">{{fm.mrm_date13|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amount13|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amt_in_word13|as_crispy_field}}</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">{{fm.mrm_region13|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_payment_mode13|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_hyp13|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_remark13|as_crispy_field}}</div>
+          </div>
+{% endif %}         
+          
+  
+
+
+{% if data.mrm_amount13 %}
+          <h6 class="form_heading mt-2" >Record 14</h6>
+          <div class="row">
+            <div class="col-sm-4">{{fm.mrm_date14|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amount14|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amt_in_word14|as_crispy_field}}</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">{{fm.mrm_region14|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_payment_mode14|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_hyp14|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_remark14|as_crispy_field}}</div>
+          </div>
+{% endif %}         
+          
+  
+
+
+{% if data.mrm_amount14 %}
+          <h6 class="form_heading mt-2" >Record 15</h6>
+          <div class="row">
+            <div class="col-sm-4">{{fm.mrm_date15|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amount15|as_crispy_field}}</div>
+            <div class="col-sm-4">{{fm.mrm_amt_in_word15|as_crispy_field}}</div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">{{fm.mrm_region15|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_payment_mode15|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_hyp15|as_crispy_field}}</div>
+            <div class="col-sm-3">{{fm.mrm_remark15|as_crispy_field}}</div>
+          </div>
+{% endif %}         
+          
+  
+
+
+                                                  
+    <div class="row text-center">
+      <div class="col-sm-12">
+      <input type="submit" value="Update Records" class="btn btnbg px-5 py-2">
+      </div>
+      
+    </div>
+</form>
+<br>
+
+<div class="row alert alertbg mt-2 text-center">
+  <div class="col-sm-1"><a href="{% url 'customer_dashboard' id %}" class="btn btn-primary mt-2" ><i class="bi bi-house-door"></i> Home</a></div>
+  <div class="col-sm-1"><a href="" class="btn btn-warning mt-2"><i class="bi bi-arrow-clockwise"></i> Refresh</a></div>
+  <div class="col-sm-9 mt-2"><h4 class="">Make Print</h4></div>
+<div class="col-sm-1"></div>
+</div>
+
+<div class="table_scroll">
+  <table class="table table-hover table_scroll">
+      <thead>
+        <tr>
+          <th scope="col" class="text-center text-white">Sr.No</th>
+          <th scope="col" class="text-center text-white">Date</th>
+          <th scope="col" class="text-center text-white">Customer Name</th>
+          <th scope="col" class="text-center text-white">Remark</th>
+          <th scope="col" class="text-center text-white">Amount</th>
+          <th scope="col" class="text-center text-white">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        {% if data.mrm_amount1 %}
+        <tr class="text-center">      
+          <td>01</td>
+          <td>{{data.mrm_date1}}</td>
+          <td>{{data.cust_name}}</td>
+          <td>{{data.mrm_remark1}}</td>
+          <td>{{data.mrm_amount1}}</td>
+          <td><a href="{% url 'print_margin_money1' id %}"class="btn btn-success px-5 py-2">Print</a></td>
+        </tr>
+{% endif %}
+
+{% if data.mrm_amount2 %}
+        <tr class="text-center">      
+          <td>02</td>
+          <td>{{data.mrm_date2}}</td>
+          <td>{{data.cust_name}}</td>
+          <td>{{data.mrm_remark2}}</td>
+          <td>{{data.mrm_amount2}}</td>
+          <td><a href="{% url 'print_margin_money2' id %}"class="btn btn-success px-5 py-2">Print</a></td>
+        </tr>
+{% endif %}
+
+{% if data.mrm_amount3 %}
+        <tr class="text-center">      
+          <td>03</td>
+          <td>{{data.mrm_date3}}</td>
+          <td>{{data.cust_name}}</td>
+          <td>{{data.mrm_remark3}}</td>
+          <td>{{data.mrm_amount3}}</td>
+          <td><a href="{% url 'print_margin_money3' id %}"class="btn btn-success px-5 py-2">Print</a></td>
+        </tr>
+{% endif %}
+
+{% if data.mrm_amount4 %}
+        <tr class="text-center">      
+          <td>04</td>
+          <td>{{data.mrm_date4}}</td>
+          <td>{{data.cust_name}}</td>
+          <td>{{data.mrm_remark4}}</td>
+          <td>{{data.mrm_amount4}}</td>
+          <td><a href="{% url 'print_margin_money4' id %}"class="btn btn-success px-5 py-2">Print</a></td>
+        </tr>
+{% endif %}
+
+{% if data.mrm_amount5 %}
+        <tr class="text-center">      
+          <td>05</td>
+          <td>{{data.mrm_date5}}</td>
+          <td>{{data.cust_name}}</td>
+          <td>{{data.mrm_remark5}}</td>
+          <td>{{data.mrm_amount5}}</td>
+          <td><a href="{% url 'print_margin_money5' id %}"class="btn btn-success px-5 py-2">Print</a></td>
+        </tr>
+{% endif %}
+
+{% if data.mrm_amount6 %}
+        <tr class="text-center">      
+          <td>06</td>
+          <td>{{data.mrm_date6}}</td>
+          <td>{{data.cust_name}}</td>
+          <td>{{data.mrm_remark6}}</td>
+          <td>{{data.mrm_amount6}}</td>
+          <td><a href="{% url 'print_margin_money6' id %}"class="btn btn-success px-5 py-2">Print</a></td>
+        </tr>
+{% endif %}
+
+{% if data.mrm_amount7 %}
+        <tr class="text-center">      
+          <td>07</td>
+          <td>{{data.mrm_date7}}</td>
+          <td>{{data.cust_name}}</td>
+          <td>{{data.mrm_remark7}}</td>
+          <td>{{data.mrm_amount7}}</td>
+          <td><a href="{% url 'print_margin_money7' id %}"class="btn btn-success px-5 py-2">Print</a></td>
+        </tr>
+{% endif %}
+
+{% if data.mrm_amount8 %}
+        <tr class="text-center">      
+          <td>08</td>
+          <td>{{data.mrm_date8}}</td>
+          <td>{{data.cust_name}}</td>
+          <td>{{data.mrm_remark8}}</td>
+          <td>{{data.mrm_amount8}}</td>
+          <td><a href="{% url 'print_margin_money8' id %}"class="btn btn-success px-5 py-2">Print</a></td>
+        </tr>
+{% endif %}
+
+{% if data.mrm_amount9 %}
+        <tr class="text-center">      
+          <td>09</td>
+          <td>{{data.mrm_date9}}</td>
+          <td>{{data.cust_name}}</td>
+          <td>{{data.mrm_remark9}}</td>
+          <td>{{data.mrm_amount9}}</td>
+          <td><a href="{% url 'print_margin_money9' id %}"class="btn btn-success px-5 py-2">Print</a></td>
+        </tr>
+{% endif %}
+
+{% if data.mrm_amount10 %}
+        <tr class="text-center">      
+          <td>10</td>
+          <td>{{data.mrm_date10}}</td>
+          <td>{{data.cust_name}}</td>
+          <td>{{data.mrm_remark10}}</td>
+          <td>{{data.mrm_amount10}}</td>
+          <td><a href="{% url 'print_margin_money10' id %}"class="btn btn-success px-5 py-2">Print</a></td>
+        </tr>
+{% endif %}
+
+{% if data.mrm_amount11 %}
+        <tr class="text-center">      
+          <td>11</td>
+          <td>{{data.mrm_date11}}</td>
+          <td>{{data.cust_name}}</td>
+          <td>{{data.mrm_remark11}}</td>
+          <td>{{data.mrm_amount11}}</td>
+          <td><a href="{% url 'print_margin_money11' id %}"class="btn btn-success px-5 py-2">Print</a></td>
+        </tr>
+{% endif %}
+
+{% if data.mrm_amount12 %}
+        <tr class="text-center">      
+          <td>12</td>
+          <td>{{data.mrm_date12}}</td>
+          <td>{{data.cust_name}}</td>
+          <td>{{data.mrm_remark12}}</td>
+          <td>{{data.mrm_amount12}}</td>
+          <td><a href="{% url 'print_margin_money12' id %}"class="btn btn-success px-5 py-2">Print</a></td>
+        </tr>
+{% endif %}
+
+{% if data.mrm_amount13 %}
+        <tr class="text-center">      
+          <td>13</td>
+          <td>{{data.mrm_date13}}</td>
+          <td>{{data.cust_name}}</td>
+          <td>{{data.mrm_remark13}}</td>
+          <td>{{data.mrm_amount13}}</td>
+          <td><a href="{% url 'print_margin_money13' id %}"class="btn btn-success px-5 py-2">Print</a></td>
+        </tr>
+{% endif %}
+
+{% if data.mrm_amount14 %}
+        <tr class="text-center">      
+          <td>14</td>
+          <td>{{data.mrm_date14}}</td>
+          <td>{{data.cust_name}}</td>
+          <td>{{data.mrm_remark14}}</td>
+          <td>{{data.mrm_amount14}}</td>
+          <td><a href="{% url 'print_margin_money14' id %}"class="btn btn-success px-5 py-2">Print</a></td>
+        </tr>
+{% endif %}
+
+{% if data.mrm_amount15 %}
+        <tr class="text-center">      
+          <td>15</td>
+          <td>{{data.mrm_date15}}</td>
+          <td>{{data.cust_name}}</td>
+          <td>{{data.mrm_remark15}}</td>
+          <td>{{data.mrm_amount15}}</td>
+          <td><a href="{% url 'print_margin_money15' id %}"class="btn btn-success px-5 py-2">Print</a></td>
+        </tr>
+{% endif %}
+
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
+
+
+
+
+<script>
+  function auto_calculations(value)
+  {
+  amt1=Number(document.getElementById('id_mrm_amount1').value);
+  amt=Number(document.getElementById('id_mrm_total_amt').value=amt1);
+  }
+</script>
+
+
+
+{% if data.mrm_amount1  %}
+<script>
+  function auto_calculations(value)
+  {
+  amt1=Number(document.getElementById('id_mrm_amount1').value);
+  amt2=Number(document.getElementById('id_mrm_amount2').value);
+  Total=amt1+amt2;
+  amt=Number(document.getElementById('id_mrm_total_amt').value=Total);
+  }
+</script>
+{% endif %}
+
+
+
+{% if data.mrm_amount1 and data.mrm_amount2   %}
+<script>
+  function auto_calculations(value)
+  {
+  amt1=Number(document.getElementById('id_mrm_amount1').value);
+  amt2=Number(document.getElementById('id_mrm_amount2').value);
+  amt3=Number(document.getElementById('id_mrm_amount3').value);
+  Total=amt1+amt2+amt3;
+  amt=Number(document.getElementById('id_mrm_total_amt').value=Total);
+  }
+</script>
+{% endif %}
+
+
+
+{% if data.mrm_amount1 and data.mrm_amount2  and data.mrm_amount3 %}
+<script>
+  function auto_calculations(value)
+  {
+  amt1=Number(document.getElementById('id_mrm_amount1').value);
+  amt2=Number(document.getElementById('id_mrm_amount2').value);
+  amt3=Number(document.getElementById('id_mrm_amount3').value);
+  amt4=Number(document.getElementById('id_mrm_amount4').value);
+  Total=amt1+amt2+amt3+amt4;
+  amt=Number(document.getElementById('id_mrm_total_amt').value=Total);
+  }
+</script>
+{% endif %}
+
+
+
+
+
+{% if data.mrm_amount1 and data.mrm_amount2  and data.mrm_amount3  and data.mrm_amount4 %}
+<script>
+  function auto_calculations(value)
+  {
+  amt1=Number(document.getElementById('id_mrm_amount1').value);
+  amt2=Number(document.getElementById('id_mrm_amount2').value);
+  amt3=Number(document.getElementById('id_mrm_amount3').value);
+  amt4=Number(document.getElementById('id_mrm_amount4').value);
+  amt5=Number(document.getElementById('id_mrm_amount5').value);
+  Total=amt1+amt2+amt3+amt4+amt5;
+  amt=Number(document.getElementById('id_mrm_total_amt').value=Total);
+  }
+</script>
+{% endif %}
+
+
+
+
+
+{% if data.mrm_amount1 and data.mrm_amount2  and data.mrm_amount3  and data.mrm_amount4  and data.mrm_amount5 %}
+<script>
+  function auto_calculations(value)
+  {
+  amt1=Number(document.getElementById('id_mrm_amount1').value);
+  amt2=Number(document.getElementById('id_mrm_amount2').value);
+  amt3=Number(document.getElementById('id_mrm_amount3').value);
+  amt4=Number(document.getElementById('id_mrm_amount4').value);
+  amt5=Number(document.getElementById('id_mrm_amount5').value);
+  amt6=Number(document.getElementById('id_mrm_amount6').value);
+  Total=amt1+amt2+amt3+amt4+amt5+amt6;
+  amt=Number(document.getElementById('id_mrm_total_amt').value=Total);
+  }
+</script>
+{% endif %}
+
+
+
+
+
+{% if data.mrm_amount1 and data.mrm_amount2  and data.mrm_amount3  and data.mrm_amount4  and data.mrm_amount5  and data.mrm_amount6 %}
+<script>
+  function auto_calculations(value)
+  {
+  amt1=Number(document.getElementById('id_mrm_amount1').value);
+  amt2=Number(document.getElementById('id_mrm_amount2').value);
+  amt3=Number(document.getElementById('id_mrm_amount3').value);
+  amt4=Number(document.getElementById('id_mrm_amount4').value);
+  amt5=Number(document.getElementById('id_mrm_amount5').value);
+  amt6=Number(document.getElementById('id_mrm_amount6').value);
+  amt7=Number(document.getElementById('id_mrm_amount7').value);
+  Total=amt1+amt2+amt3+amt4+amt5+amt6+amt7;
+  amt=Number(document.getElementById('id_mrm_total_amt').value=Total);
+  }
+</script>
+{% endif %}
+
+
+
+
+
+
+{% if data.mrm_amount1 and data.mrm_amount2  and data.mrm_amount3  and data.mrm_amount4  and data.mrm_amount5  and data.mrm_amount6 and data.mrm_amount7 %}
+<script>
+  function auto_calculations(value)
+  {
+  amt1=Number(document.getElementById('id_mrm_amount1').value);
+  amt2=Number(document.getElementById('id_mrm_amount2').value);
+  amt3=Number(document.getElementById('id_mrm_amount3').value);
+  amt4=Number(document.getElementById('id_mrm_amount4').value);
+  amt5=Number(document.getElementById('id_mrm_amount5').value);
+  amt6=Number(document.getElementById('id_mrm_amount6').value);
+  amt7=Number(document.getElementById('id_mrm_amount7').value);
+  amt8=Number(document.getElementById('id_mrm_amount8').value);
+  Total=amt1+amt2+amt3+amt4+amt5+amt6+amt7+amt8;
+  amt=Number(document.getElementById('id_mrm_total_amt').value=Total);
+  }
+</script>
+{% endif %}
+
+
+
+
+
+
+{% if data.mrm_amount1 and data.mrm_amount2  and data.mrm_amount3  and data.mrm_amount4  and data.mrm_amount5  and data.mrm_amount6 and data.mrm_amount7 and data.mrm_amount8 %}
+<script>
+  function auto_calculations(value)
+  {
+  amt1=Number(document.getElementById('id_mrm_amount1').value);
+  amt2=Number(document.getElementById('id_mrm_amount2').value);
+  amt3=Number(document.getElementById('id_mrm_amount3').value);
+  amt4=Number(document.getElementById('id_mrm_amount4').value);
+  amt5=Number(document.getElementById('id_mrm_amount5').value);
+  amt6=Number(document.getElementById('id_mrm_amount6').value);
+  amt7=Number(document.getElementById('id_mrm_amount7').value);
+  amt8=Number(document.getElementById('id_mrm_amount8').value);
+  amt9=Number(document.getElementById('id_mrm_amount9').value);
+  Total=amt1+amt2+amt3+amt4+amt5+amt6+amt7+amt8+amt9;
+  amt=Number(document.getElementById('id_mrm_total_amt').value=Total);
+  }
+</script>
+{% endif %}
+
+
+
+
+
+
+{% if data.mrm_amount1 and data.mrm_amount2  and data.mrm_amount3  and data.mrm_amount4  and data.mrm_amount5  and data.mrm_amount6 and data.mrm_amount7 and data.mrm_amount8 and data.mrm_amount9 %}
+<script>
+  function auto_calculations(value)
+  {
+  amt1=Number(document.getElementById('id_mrm_amount1').value);
+  amt2=Number(document.getElementById('id_mrm_amount2').value);
+  amt3=Number(document.getElementById('id_mrm_amount3').value);
+  amt4=Number(document.getElementById('id_mrm_amount4').value);
+  amt5=Number(document.getElementById('id_mrm_amount5').value);
+  amt6=Number(document.getElementById('id_mrm_amount6').value);
+  amt7=Number(document.getElementById('id_mrm_amount7').value);
+  amt8=Number(document.getElementById('id_mrm_amount8').value);
+  amt9=Number(document.getElementById('id_mrm_amount9').value);
+  amt10=Number(document.getElementById('id_mrm_amount10').value);
+  Total=amt1+amt2+amt3+amt4+amt5+amt6+amt7+amt8+amt9+amt10;
+  amt=Number(document.getElementById('id_mrm_total_amt').value=Total);
+  }
+</script>
+{% endif %}
+
+
+
+
+
+
+{% if data.mrm_amount1 and data.mrm_amount2  and data.mrm_amount3  and data.mrm_amount4  and data.mrm_amount5  and data.mrm_amount6 and data.mrm_amount7 and data.mrm_amount8 and data.mrm_amount9 and data.mrm_amount10 %}
+<script>
+  function auto_calculations(value)
+  {
+  amt1=Number(document.getElementById('id_mrm_amount1').value);
+  amt2=Number(document.getElementById('id_mrm_amount2').value);
+  amt3=Number(document.getElementById('id_mrm_amount3').value);
+  amt4=Number(document.getElementById('id_mrm_amount4').value);
+  amt5=Number(document.getElementById('id_mrm_amount5').value);
+  amt6=Number(document.getElementById('id_mrm_amount6').value);
+  amt7=Number(document.getElementById('id_mrm_amount7').value);
+  amt8=Number(document.getElementById('id_mrm_amount8').value);
+  amt9=Number(document.getElementById('id_mrm_amount9').value);
+  amt10=Number(document.getElementById('id_mrm_amount10').value);
+  amt11=Number(document.getElementById('id_mrm_amount11').value);
+  Total=amt1+amt2+amt3+amt4+amt5+amt6+amt7+amt8+amt9+amt10+amt11;
+  amt=Number(document.getElementById('id_mrm_total_amt').value=Total);
+  }
+</script>
+{% endif %}
+
+
+
+
+
+{% if data.mrm_amount1 and data.mrm_amount2  and data.mrm_amount3  and data.mrm_amount4  and data.mrm_amount5  and data.mrm_amount6 and data.mrm_amount7 and data.mrm_amount8 and data.mrm_amount9 and data.mrm_amount10 and data.mrm_amount11 %}
+<script>
+  function auto_calculations(value)
+  {
+  amt1=Number(document.getElementById('id_mrm_amount1').value);
+  amt2=Number(document.getElementById('id_mrm_amount2').value);
+  amt3=Number(document.getElementById('id_mrm_amount3').value);
+  amt4=Number(document.getElementById('id_mrm_amount4').value);
+  amt5=Number(document.getElementById('id_mrm_amount5').value);
+  amt6=Number(document.getElementById('id_mrm_amount6').value);
+  amt7=Number(document.getElementById('id_mrm_amount7').value);
+  amt8=Number(document.getElementById('id_mrm_amount8').value);
+  amt9=Number(document.getElementById('id_mrm_amount9').value);
+  amt10=Number(document.getElementById('id_mrm_amount10').value);
+  amt11=Number(document.getElementById('id_mrm_amount11').value);
+  amt12=Number(document.getElementById('id_mrm_amount12').value);
+  Total=amt1+amt2+amt3+amt4+amt5+amt6+amt7+amt8+amt9+amt10+amt11+amt12;
+  amt=Number(document.getElementById('id_mrm_total_amt').value=Total);
+  }
+</script>
+{% endif %}
+
+
+
+
+
+
+{% if data.mrm_amount1 and data.mrm_amount2  and data.mrm_amount3  and data.mrm_amount4  and data.mrm_amount5  and data.mrm_amount6 and data.mrm_amount7 and data.mrm_amount8 and data.mrm_amount9 and data.mrm_amount10 and data.mrm_amount12 %}
+<script>
+  function auto_calculations(value)
+  {
+  amt1=Number(document.getElementById('id_mrm_amount1').value);
+  amt2=Number(document.getElementById('id_mrm_amount2').value);
+  amt3=Number(document.getElementById('id_mrm_amount3').value);
+  amt4=Number(document.getElementById('id_mrm_amount4').value);
+  amt5=Number(document.getElementById('id_mrm_amount5').value);
+  amt6=Number(document.getElementById('id_mrm_amount6').value);
+  amt7=Number(document.getElementById('id_mrm_amount7').value);
+  amt8=Number(document.getElementById('id_mrm_amount8').value);
+  amt9=Number(document.getElementById('id_mrm_amount9').value);
+  amt10=Number(document.getElementById('id_mrm_amount10').value);
+  amt11=Number(document.getElementById('id_mrm_amount11').value);
+  amt12=Number(document.getElementById('id_mrm_amount12').value);
+  amt13=Number(document.getElementById('id_mrm_amount13').value);
+  Total=amt1+amt2+amt3+amt4+amt5+amt6+amt7+amt8+amt9+amt10+amt11+amt12+amt13;
+  amt=Number(document.getElementById('id_mrm_total_amt').value=Total);
+  }
+</script>
+{% endif %}
+
+
+
+
+
+
+{% if data.mrm_amount1 and data.mrm_amount2  and data.mrm_amount3  and data.mrm_amount4  and data.mrm_amount5  and data.mrm_amount6 and data.mrm_amount7 and data.mrm_amount8 and data.mrm_amount9 and data.mrm_amount10 and data.mrm_amount12 and data.mrm_amount13 %}
+<script>
+  function auto_calculations(value)
+  {
+  amt1=Number(document.getElementById('id_mrm_amount1').value);
+  amt2=Number(document.getElementById('id_mrm_amount2').value);
+  amt3=Number(document.getElementById('id_mrm_amount3').value);
+  amt4=Number(document.getElementById('id_mrm_amount4').value);
+  amt5=Number(document.getElementById('id_mrm_amount5').value);
+  amt6=Number(document.getElementById('id_mrm_amount6').value);
+  amt7=Number(document.getElementById('id_mrm_amount7').value);
+  amt8=Number(document.getElementById('id_mrm_amount8').value);
+  amt9=Number(document.getElementById('id_mrm_amount9').value);
+  amt10=Number(document.getElementById('id_mrm_amount10').value);
+  amt11=Number(document.getElementById('id_mrm_amount11').value);
+  amt12=Number(document.getElementById('id_mrm_amount12').value);
+  amt13=Number(document.getElementById('id_mrm_amount13').value);
+  amt14=Number(document.getElementById('id_mrm_amount14').value);
+  Total=amt1+amt2+amt3+amt4+amt5+amt6+amt7+amt8+amt9+amt10+amt11+amt12+amt13+amt14;
+  amt=Number(document.getElementById('id_mrm_total_amt').value=Total);
+  }
+</script>
+{% endif %}
+
+
+
+
+
+
+
+{% if data.mrm_amount1 and data.mrm_amount2  and data.mrm_amount3  and data.mrm_amount4  and data.mrm_amount5  and data.mrm_amount6 and data.mrm_amount7 and data.mrm_amount8 and data.mrm_amount9 and data.mrm_amount10 and data.mrm_amount12 and data.mrm_amount13 and data.mrm_amount14 %}
+<script>
+  function auto_calculations(value)
+  {
+  amt1=Number(document.getElementById('id_mrm_amount1').value);
+  amt2=Number(document.getElementById('id_mrm_amount2').value);
+  amt3=Number(document.getElementById('id_mrm_amount3').value);
+  amt4=Number(document.getElementById('id_mrm_amount4').value);
+  amt5=Number(document.getElementById('id_mrm_amount5').value);
+  amt6=Number(document.getElementById('id_mrm_amount6').value);
+  amt7=Number(document.getElementById('id_mrm_amount7').value);
+  amt8=Number(document.getElementById('id_mrm_amount8').value);
+  amt9=Number(document.getElementById('id_mrm_amount9').value);
+  amt10=Number(document.getElementById('id_mrm_amount10').value);
+  amt11=Number(document.getElementById('id_mrm_amount11').value);
+  amt12=Number(document.getElementById('id_mrm_amount12').value);
+  amt13=Number(document.getElementById('id_mrm_amount13').value);
+  amt14=Number(document.getElementById('id_mrm_amount14').value);
+  amt15=Number(document.getElementById('id_mrm_amount15').value);
+  Total=amt1+amt2+amt3+amt4+amt5+amt6+amt7+amt8+amt9+amt10+amt11+amt12+amt13+amt14+amt15;
+  amt=Number(document.getElementById('id_mrm_total_amt').value=Total);
+  }
+</script>
+{% endif %}
+
+
+
+
+<script>
+  function ConvertNumberToWords1(number) {
+    var words = new Array();
+    words[0] = '';
+    words[1] = 'One';
+    words[2] = 'Two';
+    words[3] = 'Three';
+    words[4] = 'Four';
+    words[5] = 'Five';
+    words[6] = 'Six';
+    words[7] = 'Seven';
+    words[8] = 'Eight';
+    words[9] = 'Nine';
+    words[10] = 'Ten';
+    words[11] = 'Eleven';
+    words[12] = 'Twelve';
+    words[13] = 'Thirteen';
+    words[14] = 'Fourteen';
+    words[15] = 'Fifteen';
+    words[16] = 'Sixteen';
+    words[17] = 'Seventeen';
+    words[18] = 'Eighteen';
+    words[19] = 'Nineteen';
+    words[20] = 'Twenty';
+    words[30] = 'Thirty';
+    words[40] = 'Forty';
+    words[50] = 'Fifty';
+    words[60] = 'Sixty';
+    words[70] = 'Seventy';
+    words[80] = 'Eighty';
+    words[90] = 'Ninety';
+    number = number.toString();
+    var atemp = number.split(".");
+    var number = atemp[0].split(",").join("");
+    var n_length = number.length;
+    var words_string = "";
+    if (n_length <= 9) {
+        var n_array = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0);
+        var received_n_array = new Array();
+        for (var i = 0; i < n_length; i++) {
+            received_n_array[i] = number.substr(i, 1);
+        }
+        for (var i = 9 - n_length, j = 0; i < 9; i++ , j++) {
+            n_array[i] = received_n_array[j];
+        }
+        for (var i = 0, j = 1; i < 9; i++ , j++) {
+            if (i == 0 || i == 2 || i == 4 || i == 7) {
+                if (n_array[i] == 1) {
+                    n_array[j] = 10 + parseInt(n_array[j]);
+                    n_array[i] = 0;
+                }
+            }
+        }
+        value = "";
+        for (var i = 0; i < 9; i++) {
+            if (i == 0 || i == 2 || i == 4 || i == 7) {
+                value = n_array[i] * 10;
+            } else {
+                value = n_array[i];
+            }
+            if (value != 0) {
+                words_string += words[value] + " ";
+            }
+            if ((i == 1 && value != 0) || (i == 0 && value != 0 && n_array[i + 1] == 0)) {
+                words_string += "Crores ";
+            }
+            if ((i == 3 && value != 0) || (i == 2 && value != 0 && n_array[i + 1] == 0)) {
+                words_string += "Lakhs ";
+            }
+            if ((i == 5 && value != 0) || (i == 4 && value != 0 && n_array[i + 1] == 0)) {
+                words_string += "Thousand ";
+            }
+            if (i == 6 && value != 0 && (n_array[i + 1] != 0 && n_array[i + 2] != 0)) {
+                words_string += "Hundred and ";
+            } else if (i == 6 && value != 0) {
+                words_string += "Hundred ";
+            }
+        }
+        words_string = words_string.split("  ").join(" ");
+    }
+    document.getElementById('id_mrm_amt_in_word1').value = words_string;
+}
+
+
+
+
+
+
+{% comment %} Amount in Word Two {% endcomment %}
+
+function ConvertNumberToWords2(number) {
+  var words = new Array();
+  words[0] = '';
+  words[1] = 'One';
+  words[2] = 'Two';
+  words[3] = 'Three';
+  words[4] = 'Four';
+  words[5] = 'Five';
+  words[6] = 'Six';
+  words[7] = 'Seven';
+  words[8] = 'Eight';
+  words[9] = 'Nine';
+  words[10] = 'Ten';
+  words[11] = 'Eleven';
+  words[12] = 'Twelve';
+  words[13] = 'Thirteen';
+  words[14] = 'Fourteen';
+  words[15] = 'Fifteen';
+  words[16] = 'Sixteen';
+  words[17] = 'Seventeen';
+  words[18] = 'Eighteen';
+  words[19] = 'Nineteen';
+  words[20] = 'Twenty';
+  words[30] = 'Thirty';
+  words[40] = 'Forty';
+  words[50] = 'Fifty';
+  words[60] = 'Sixty';
+  words[70] = 'Seventy';
+  words[80] = 'Eighty';
+  words[90] = 'Ninety';
+  number = number.toString();
+  var atemp = number.split(".");
+  var number = atemp[0].split(",").join("");
+  var n_length = number.length;
+  var words_string = "";
+  if (n_length <= 9) {
+      var n_array = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0);
+      var received_n_array = new Array();
+      for (var i = 0; i < n_length; i++) {
+          received_n_array[i] = number.substr(i, 1);
+      }
+      for (var i = 9 - n_length, j = 0; i < 9; i++ , j++) {
+          n_array[i] = received_n_array[j];
+      }
+      for (var i = 0, j = 1; i < 9; i++ , j++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              if (n_array[i] == 1) {
+                  n_array[j] = 10 + parseInt(n_array[j]);
+                  n_array[i] = 0;
+              }
+          }
+      }
+      value = "";
+      for (var i = 0; i < 9; i++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              value = n_array[i] * 10;
+          } else {
+              value = n_array[i];
+          }
+          if (value != 0) {
+              words_string += words[value] + " ";
+          }
+          if ((i == 1 && value != 0) || (i == 0 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Crores ";
+          }
+          if ((i == 3 && value != 0) || (i == 2 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Lakhs ";
+          }
+          if ((i == 5 && value != 0) || (i == 4 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Thousand ";
+          }
+          if (i == 6 && value != 0 && (n_array[i + 1] != 0 && n_array[i + 2] != 0)) {
+              words_string += "Hundred and ";
+          } else if (i == 6 && value != 0) {
+              words_string += "Hundred ";
+          }
+      }
+      words_string = words_string.split("  ").join(" ");
+  }
+  document.getElementById('id_mrm_amt_in_word2').value = words_string;
+}
+
+
+
+
+
+
+
+{% comment %} Amount in Word Three {% endcomment %}
+
+function ConvertNumberToWords3(number) {
+  var words = new Array();
+  words[0] = '';
+  words[1] = 'One';
+  words[2] = 'Two';
+  words[3] = 'Three';
+  words[4] = 'Four';
+  words[5] = 'Five';
+  words[6] = 'Six';
+  words[7] = 'Seven';
+  words[8] = 'Eight';
+  words[9] = 'Nine';
+  words[10] = 'Ten';
+  words[11] = 'Eleven';
+  words[12] = 'Twelve';
+  words[13] = 'Thirteen';
+  words[14] = 'Fourteen';
+  words[15] = 'Fifteen';
+  words[16] = 'Sixteen';
+  words[17] = 'Seventeen';
+  words[18] = 'Eighteen';
+  words[19] = 'Nineteen';
+  words[20] = 'Twenty';
+  words[30] = 'Thirty';
+  words[40] = 'Forty';
+  words[50] = 'Fifty';
+  words[60] = 'Sixty';
+  words[70] = 'Seventy';
+  words[80] = 'Eighty';
+  words[90] = 'Ninety';
+  number = number.toString();
+  var atemp = number.split(".");
+  var number = atemp[0].split(",").join("");
+  var n_length = number.length;
+  var words_string = "";
+  if (n_length <= 9) {
+      var n_array = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0);
+      var received_n_array = new Array();
+      for (var i = 0; i < n_length; i++) {
+          received_n_array[i] = number.substr(i, 1);
+      }
+      for (var i = 9 - n_length, j = 0; i < 9; i++ , j++) {
+          n_array[i] = received_n_array[j];
+      }
+      for (var i = 0, j = 1; i < 9; i++ , j++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              if (n_array[i] == 1) {
+                  n_array[j] = 10 + parseInt(n_array[j]);
+                  n_array[i] = 0;
+              }
+          }
+      }
+      value = "";
+      for (var i = 0; i < 9; i++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              value = n_array[i] * 10;
+          } else {
+              value = n_array[i];
+          }
+          if (value != 0) {
+              words_string += words[value] + " ";
+          }
+          if ((i == 1 && value != 0) || (i == 0 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Crores ";
+          }
+          if ((i == 3 && value != 0) || (i == 2 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Lakhs ";
+          }
+          if ((i == 5 && value != 0) || (i == 4 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Thousand ";
+          }
+          if (i == 6 && value != 0 && (n_array[i + 1] != 0 && n_array[i + 2] != 0)) {
+              words_string += "Hundred and ";
+          } else if (i == 6 && value != 0) {
+              words_string += "Hundred ";
+          }
+      }
+      words_string = words_string.split("  ").join(" ");
+  }
+  document.getElementById('id_mrm_amt_in_word3').value = words_string;
+}
+
+
+
+
+
+
+
+{% comment %} Amount in Word Four {% endcomment %}
+
+function ConvertNumberToWords4(number) {
+  var words = new Array();
+  words[0] = '';
+  words[1] = 'One';
+  words[2] = 'Two';
+  words[3] = 'Three';
+  words[4] = 'Four';
+  words[5] = 'Five';
+  words[6] = 'Six';
+  words[7] = 'Seven';
+  words[8] = 'Eight';
+  words[9] = 'Nine';
+  words[10] = 'Ten';
+  words[11] = 'Eleven';
+  words[12] = 'Twelve';
+  words[13] = 'Thirteen';
+  words[14] = 'Fourteen';
+  words[15] = 'Fifteen';
+  words[16] = 'Sixteen';
+  words[17] = 'Seventeen';
+  words[18] = 'Eighteen';
+  words[19] = 'Nineteen';
+  words[20] = 'Twenty';
+  words[30] = 'Thirty';
+  words[40] = 'Forty';
+  words[50] = 'Fifty';
+  words[60] = 'Sixty';
+  words[70] = 'Seventy';
+  words[80] = 'Eighty';
+  words[90] = 'Ninety';
+  number = number.toString();
+  var atemp = number.split(".");
+  var number = atemp[0].split(",").join("");
+  var n_length = number.length;
+  var words_string = "";
+  if (n_length <= 9) {
+      var n_array = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0);
+      var received_n_array = new Array();
+      for (var i = 0; i < n_length; i++) {
+          received_n_array[i] = number.substr(i, 1);
+      }
+      for (var i = 9 - n_length, j = 0; i < 9; i++ , j++) {
+          n_array[i] = received_n_array[j];
+      }
+      for (var i = 0, j = 1; i < 9; i++ , j++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              if (n_array[i] == 1) {
+                  n_array[j] = 10 + parseInt(n_array[j]);
+                  n_array[i] = 0;
+              }
+          }
+      }
+      value = "";
+      for (var i = 0; i < 9; i++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              value = n_array[i] * 10;
+          } else {
+              value = n_array[i];
+          }
+          if (value != 0) {
+              words_string += words[value] + " ";
+          }
+          if ((i == 1 && value != 0) || (i == 0 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Crores ";
+          }
+          if ((i == 3 && value != 0) || (i == 2 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Lakhs ";
+          }
+          if ((i == 5 && value != 0) || (i == 4 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Thousand ";
+          }
+          if (i == 6 && value != 0 && (n_array[i + 1] != 0 && n_array[i + 2] != 0)) {
+              words_string += "Hundred and ";
+          } else if (i == 6 && value != 0) {
+              words_string += "Hundred ";
+          }
+      }
+      words_string = words_string.split("  ").join(" ");
+  }
+  document.getElementById('id_mrm_amt_in_word4').value = words_string;
+}
+
+
+
+
+
+
+
+{% comment %} Amount in Word Five {% endcomment %}
+
+function ConvertNumberToWords5(number) {
+  var words = new Array();
+  words[0] = '';
+  words[1] = 'One';
+  words[2] = 'Two';
+  words[3] = 'Three';
+  words[4] = 'Four';
+  words[5] = 'Five';
+  words[6] = 'Six';
+  words[7] = 'Seven';
+  words[8] = 'Eight';
+  words[9] = 'Nine';
+  words[10] = 'Ten';
+  words[11] = 'Eleven';
+  words[12] = 'Twelve';
+  words[13] = 'Thirteen';
+  words[14] = 'Fourteen';
+  words[15] = 'Fifteen';
+  words[16] = 'Sixteen';
+  words[17] = 'Seventeen';
+  words[18] = 'Eighteen';
+  words[19] = 'Nineteen';
+  words[20] = 'Twenty';
+  words[30] = 'Thirty';
+  words[40] = 'Forty';
+  words[50] = 'Fifty';
+  words[60] = 'Sixty';
+  words[70] = 'Seventy';
+  words[80] = 'Eighty';
+  words[90] = 'Ninety';
+  number = number.toString();
+  var atemp = number.split(".");
+  var number = atemp[0].split(",").join("");
+  var n_length = number.length;
+  var words_string = "";
+  if (n_length <= 9) {
+      var n_array = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0);
+      var received_n_array = new Array();
+      for (var i = 0; i < n_length; i++) {
+          received_n_array[i] = number.substr(i, 1);
+      }
+      for (var i = 9 - n_length, j = 0; i < 9; i++ , j++) {
+          n_array[i] = received_n_array[j];
+      }
+      for (var i = 0, j = 1; i < 9; i++ , j++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              if (n_array[i] == 1) {
+                  n_array[j] = 10 + parseInt(n_array[j]);
+                  n_array[i] = 0;
+              }
+          }
+      }
+      value = "";
+      for (var i = 0; i < 9; i++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              value = n_array[i] * 10;
+          } else {
+              value = n_array[i];
+          }
+          if (value != 0) {
+              words_string += words[value] + " ";
+          }
+          if ((i == 1 && value != 0) || (i == 0 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Crores ";
+          }
+          if ((i == 3 && value != 0) || (i == 2 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Lakhs ";
+          }
+          if ((i == 5 && value != 0) || (i == 4 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Thousand ";
+          }
+          if (i == 6 && value != 0 && (n_array[i + 1] != 0 && n_array[i + 2] != 0)) {
+              words_string += "Hundred and ";
+          } else if (i == 6 && value != 0) {
+              words_string += "Hundred ";
+          }
+      }
+      words_string = words_string.split("  ").join(" ");
+  }
+  document.getElementById('id_mrm_amt_in_word5').value = words_string;
+}
+
+
+
+
+
+
+
+{% comment %} Amount in Word Six {% endcomment %}
+
+function ConvertNumberToWords6(number) {
+  var words = new Array();
+  words[0] = '';
+  words[1] = 'One';
+  words[2] = 'Two';
+  words[3] = 'Three';
+  words[4] = 'Four';
+  words[5] = 'Five';
+  words[6] = 'Six';
+  words[7] = 'Seven';
+  words[8] = 'Eight';
+  words[9] = 'Nine';
+  words[10] = 'Ten';
+  words[11] = 'Eleven';
+  words[12] = 'Twelve';
+  words[13] = 'Thirteen';
+  words[14] = 'Fourteen';
+  words[15] = 'Fifteen';
+  words[16] = 'Sixteen';
+  words[17] = 'Seventeen';
+  words[18] = 'Eighteen';
+  words[19] = 'Nineteen';
+  words[20] = 'Twenty';
+  words[30] = 'Thirty';
+  words[40] = 'Forty';
+  words[50] = 'Fifty';
+  words[60] = 'Sixty';
+  words[70] = 'Seventy';
+  words[80] = 'Eighty';
+  words[90] = 'Ninety';
+  number = number.toString();
+  var atemp = number.split(".");
+  var number = atemp[0].split(",").join("");
+  var n_length = number.length;
+  var words_string = "";
+  if (n_length <= 9) {
+      var n_array = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0);
+      var received_n_array = new Array();
+      for (var i = 0; i < n_length; i++) {
+          received_n_array[i] = number.substr(i, 1);
+      }
+      for (var i = 9 - n_length, j = 0; i < 9; i++ , j++) {
+          n_array[i] = received_n_array[j];
+      }
+      for (var i = 0, j = 1; i < 9; i++ , j++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              if (n_array[i] == 1) {
+                  n_array[j] = 10 + parseInt(n_array[j]);
+                  n_array[i] = 0;
+              }
+          }
+      }
+      value = "";
+      for (var i = 0; i < 9; i++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              value = n_array[i] * 10;
+          } else {
+              value = n_array[i];
+          }
+          if (value != 0) {
+              words_string += words[value] + " ";
+          }
+          if ((i == 1 && value != 0) || (i == 0 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Crores ";
+          }
+          if ((i == 3 && value != 0) || (i == 2 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Lakhs ";
+          }
+          if ((i == 5 && value != 0) || (i == 4 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Thousand ";
+          }
+          if (i == 6 && value != 0 && (n_array[i + 1] != 0 && n_array[i + 2] != 0)) {
+              words_string += "Hundred and ";
+          } else if (i == 6 && value != 0) {
+              words_string += "Hundred ";
+          }
+      }
+      words_string = words_string.split("  ").join(" ");
+  }
+  document.getElementById('id_mrm_amt_in_word6').value = words_string;
+}
+
+
+
+
+
+
+
+{% comment %} Amount in Word Seven {% endcomment %}
+
+function ConvertNumberToWords7(number) {
+  var words = new Array();
+  words[0] = '';
+  words[1] = 'One';
+  words[2] = 'Two';
+  words[3] = 'Three';
+  words[4] = 'Four';
+  words[5] = 'Five';
+  words[6] = 'Six';
+  words[7] = 'Seven';
+  words[8] = 'Eight';
+  words[9] = 'Nine';
+  words[10] = 'Ten';
+  words[11] = 'Eleven';
+  words[12] = 'Twelve';
+  words[13] = 'Thirteen';
+  words[14] = 'Fourteen';
+  words[15] = 'Fifteen';
+  words[16] = 'Sixteen';
+  words[17] = 'Seventeen';
+  words[18] = 'Eighteen';
+  words[19] = 'Nineteen';
+  words[20] = 'Twenty';
+  words[30] = 'Thirty';
+  words[40] = 'Forty';
+  words[50] = 'Fifty';
+  words[60] = 'Sixty';
+  words[70] = 'Seventy';
+  words[80] = 'Eighty';
+  words[90] = 'Ninety';
+  number = number.toString();
+  var atemp = number.split(".");
+  var number = atemp[0].split(",").join("");
+  var n_length = number.length;
+  var words_string = "";
+  if (n_length <= 9) {
+      var n_array = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0);
+      var received_n_array = new Array();
+      for (var i = 0; i < n_length; i++) {
+          received_n_array[i] = number.substr(i, 1);
+      }
+      for (var i = 9 - n_length, j = 0; i < 9; i++ , j++) {
+          n_array[i] = received_n_array[j];
+      }
+      for (var i = 0, j = 1; i < 9; i++ , j++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              if (n_array[i] == 1) {
+                  n_array[j] = 10 + parseInt(n_array[j]);
+                  n_array[i] = 0;
+              }
+          }
+      }
+      value = "";
+      for (var i = 0; i < 9; i++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              value = n_array[i] * 10;
+          } else {
+              value = n_array[i];
+          }
+          if (value != 0) {
+              words_string += words[value] + " ";
+          }
+          if ((i == 1 && value != 0) || (i == 0 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Crores ";
+          }
+          if ((i == 3 && value != 0) || (i == 2 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Lakhs ";
+          }
+          if ((i == 5 && value != 0) || (i == 4 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Thousand ";
+          }
+          if (i == 6 && value != 0 && (n_array[i + 1] != 0 && n_array[i + 2] != 0)) {
+              words_string += "Hundred and ";
+          } else if (i == 6 && value != 0) {
+              words_string += "Hundred ";
+          }
+      }
+      words_string = words_string.split("  ").join(" ");
+  }
+  document.getElementById('id_mrm_amt_in_word7').value = words_string;
+}
+
+
+
+
+
+
+
+{% comment %} Amount in Word Eight {% endcomment %}
+
+function ConvertNumberToWords8(number) {
+  var words = new Array();
+  words[0] = '';
+  words[1] = 'One';
+  words[2] = 'Two';
+  words[3] = 'Three';
+  words[4] = 'Four';
+  words[5] = 'Five';
+  words[6] = 'Six';
+  words[7] = 'Seven';
+  words[8] = 'Eight';
+  words[9] = 'Nine';
+  words[10] = 'Ten';
+  words[11] = 'Eleven';
+  words[12] = 'Twelve';
+  words[13] = 'Thirteen';
+  words[14] = 'Fourteen';
+  words[15] = 'Fifteen';
+  words[16] = 'Sixteen';
+  words[17] = 'Seventeen';
+  words[18] = 'Eighteen';
+  words[19] = 'Nineteen';
+  words[20] = 'Twenty';
+  words[30] = 'Thirty';
+  words[40] = 'Forty';
+  words[50] = 'Fifty';
+  words[60] = 'Sixty';
+  words[70] = 'Seventy';
+  words[80] = 'Eighty';
+  words[90] = 'Ninety';
+  number = number.toString();
+  var atemp = number.split(".");
+  var number = atemp[0].split(",").join("");
+  var n_length = number.length;
+  var words_string = "";
+  if (n_length <= 9) {
+      var n_array = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0);
+      var received_n_array = new Array();
+      for (var i = 0; i < n_length; i++) {
+          received_n_array[i] = number.substr(i, 1);
+      }
+      for (var i = 9 - n_length, j = 0; i < 9; i++ , j++) {
+          n_array[i] = received_n_array[j];
+      }
+      for (var i = 0, j = 1; i < 9; i++ , j++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              if (n_array[i] == 1) {
+                  n_array[j] = 10 + parseInt(n_array[j]);
+                  n_array[i] = 0;
+              }
+          }
+      }
+      value = "";
+      for (var i = 0; i < 9; i++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              value = n_array[i] * 10;
+          } else {
+              value = n_array[i];
+          }
+          if (value != 0) {
+              words_string += words[value] + " ";
+          }
+          if ((i == 1 && value != 0) || (i == 0 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Crores ";
+          }
+          if ((i == 3 && value != 0) || (i == 2 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Lakhs ";
+          }
+          if ((i == 5 && value != 0) || (i == 4 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Thousand ";
+          }
+          if (i == 6 && value != 0 && (n_array[i + 1] != 0 && n_array[i + 2] != 0)) {
+              words_string += "Hundred and ";
+          } else if (i == 6 && value != 0) {
+              words_string += "Hundred ";
+          }
+      }
+      words_string = words_string.split("  ").join(" ");
+  }
+  document.getElementById('id_mrm_amt_in_word8').value = words_string;
+}
+
+
+
+
+
+
+
+{% comment %} Amount in Word Nine {% endcomment %}
+
+function ConvertNumberToWords9(number) {
+  var words = new Array();
+  words[0] = '';
+  words[1] = 'One';
+  words[2] = 'Two';
+  words[3] = 'Three';
+  words[4] = 'Four';
+  words[5] = 'Five';
+  words[6] = 'Six';
+  words[7] = 'Seven';
+  words[8] = 'Eight';
+  words[9] = 'Nine';
+  words[10] = 'Ten';
+  words[11] = 'Eleven';
+  words[12] = 'Twelve';
+  words[13] = 'Thirteen';
+  words[14] = 'Fourteen';
+  words[15] = 'Fifteen';
+  words[16] = 'Sixteen';
+  words[17] = 'Seventeen';
+  words[18] = 'Eighteen';
+  words[19] = 'Nineteen';
+  words[20] = 'Twenty';
+  words[30] = 'Thirty';
+  words[40] = 'Forty';
+  words[50] = 'Fifty';
+  words[60] = 'Sixty';
+  words[70] = 'Seventy';
+  words[80] = 'Eighty';
+  words[90] = 'Ninety';
+  number = number.toString();
+  var atemp = number.split(".");
+  var number = atemp[0].split(",").join("");
+  var n_length = number.length;
+  var words_string = "";
+  if (n_length <= 9) {
+      var n_array = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0);
+      var received_n_array = new Array();
+      for (var i = 0; i < n_length; i++) {
+          received_n_array[i] = number.substr(i, 1);
+      }
+      for (var i = 9 - n_length, j = 0; i < 9; i++ , j++) {
+          n_array[i] = received_n_array[j];
+      }
+      for (var i = 0, j = 1; i < 9; i++ , j++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              if (n_array[i] == 1) {
+                  n_array[j] = 10 + parseInt(n_array[j]);
+                  n_array[i] = 0;
+              }
+          }
+      }
+      value = "";
+      for (var i = 0; i < 9; i++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              value = n_array[i] * 10;
+          } else {
+              value = n_array[i];
+          }
+          if (value != 0) {
+              words_string += words[value] + " ";
+          }
+          if ((i == 1 && value != 0) || (i == 0 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Crores ";
+          }
+          if ((i == 3 && value != 0) || (i == 2 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Lakhs ";
+          }
+          if ((i == 5 && value != 0) || (i == 4 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Thousand ";
+          }
+          if (i == 6 && value != 0 && (n_array[i + 1] != 0 && n_array[i + 2] != 0)) {
+              words_string += "Hundred and ";
+          } else if (i == 6 && value != 0) {
+              words_string += "Hundred ";
+          }
+      }
+      words_string = words_string.split("  ").join(" ");
+  }
+  document.getElementById('id_mrm_amt_in_word9').value = words_string;
+}
+
+
+
+
+
+
+
+{% comment %} Amount in Word Ten {% endcomment %}
+
+function ConvertNumberToWords10(number) {
+  var words = new Array();
+  words[0] = '';
+  words[1] = 'One';
+  words[2] = 'Two';
+  words[3] = 'Three';
+  words[4] = 'Four';
+  words[5] = 'Five';
+  words[6] = 'Six';
+  words[7] = 'Seven';
+  words[8] = 'Eight';
+  words[9] = 'Nine';
+  words[10] = 'Ten';
+  words[11] = 'Eleven';
+  words[12] = 'Twelve';
+  words[13] = 'Thirteen';
+  words[14] = 'Fourteen';
+  words[15] = 'Fifteen';
+  words[16] = 'Sixteen';
+  words[17] = 'Seventeen';
+  words[18] = 'Eighteen';
+  words[19] = 'Nineteen';
+  words[20] = 'Twenty';
+  words[30] = 'Thirty';
+  words[40] = 'Forty';
+  words[50] = 'Fifty';
+  words[60] = 'Sixty';
+  words[70] = 'Seventy';
+  words[80] = 'Eighty';
+  words[90] = 'Ninety';
+  number = number.toString();
+  var atemp = number.split(".");
+  var number = atemp[0].split(",").join("");
+  var n_length = number.length;
+  var words_string = "";
+  if (n_length <= 9) {
+      var n_array = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0);
+      var received_n_array = new Array();
+      for (var i = 0; i < n_length; i++) {
+          received_n_array[i] = number.substr(i, 1);
+      }
+      for (var i = 9 - n_length, j = 0; i < 9; i++ , j++) {
+          n_array[i] = received_n_array[j];
+      }
+      for (var i = 0, j = 1; i < 9; i++ , j++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              if (n_array[i] == 1) {
+                  n_array[j] = 10 + parseInt(n_array[j]);
+                  n_array[i] = 0;
+              }
+          }
+      }
+      value = "";
+      for (var i = 0; i < 9; i++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              value = n_array[i] * 10;
+          } else {
+              value = n_array[i];
+          }
+          if (value != 0) {
+              words_string += words[value] + " ";
+          }
+          if ((i == 1 && value != 0) || (i == 0 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Crores ";
+          }
+          if ((i == 3 && value != 0) || (i == 2 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Lakhs ";
+          }
+          if ((i == 5 && value != 0) || (i == 4 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Thousand ";
+          }
+          if (i == 6 && value != 0 && (n_array[i + 1] != 0 && n_array[i + 2] != 0)) {
+              words_string += "Hundred and ";
+          } else if (i == 6 && value != 0) {
+              words_string += "Hundred ";
+          }
+      }
+      words_string = words_string.split("  ").join(" ");
+  }
+  document.getElementById('id_mrm_amt_in_word10').value = words_string;
+}
+
+
+
+
+
+
+
+{% comment %} Amount in Word Eleven {% endcomment %}
+
+function ConvertNumberToWords11(number) {
+  var words = new Array();
+  words[0] = '';
+  words[1] = 'One';
+  words[2] = 'Two';
+  words[3] = 'Three';
+  words[4] = 'Four';
+  words[5] = 'Five';
+  words[6] = 'Six';
+  words[7] = 'Seven';
+  words[8] = 'Eight';
+  words[9] = 'Nine';
+  words[10] = 'Ten';
+  words[11] = 'Eleven';
+  words[12] = 'Twelve';
+  words[13] = 'Thirteen';
+  words[14] = 'Fourteen';
+  words[15] = 'Fifteen';
+  words[16] = 'Sixteen';
+  words[17] = 'Seventeen';
+  words[18] = 'Eighteen';
+  words[19] = 'Nineteen';
+  words[20] = 'Twenty';
+  words[30] = 'Thirty';
+  words[40] = 'Forty';
+  words[50] = 'Fifty';
+  words[60] = 'Sixty';
+  words[70] = 'Seventy';
+  words[80] = 'Eighty';
+  words[90] = 'Ninety';
+  number = number.toString();
+  var atemp = number.split(".");
+  var number = atemp[0].split(",").join("");
+  var n_length = number.length;
+  var words_string = "";
+  if (n_length <= 9) {
+      var n_array = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0);
+      var received_n_array = new Array();
+      for (var i = 0; i < n_length; i++) {
+          received_n_array[i] = number.substr(i, 1);
+      }
+      for (var i = 9 - n_length, j = 0; i < 9; i++ , j++) {
+          n_array[i] = received_n_array[j];
+      }
+      for (var i = 0, j = 1; i < 9; i++ , j++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              if (n_array[i] == 1) {
+                  n_array[j] = 10 + parseInt(n_array[j]);
+                  n_array[i] = 0;
+              }
+          }
+      }
+      value = "";
+      for (var i = 0; i < 9; i++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              value = n_array[i] * 10;
+          } else {
+              value = n_array[i];
+          }
+          if (value != 0) {
+              words_string += words[value] + " ";
+          }
+          if ((i == 1 && value != 0) || (i == 0 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Crores ";
+          }
+          if ((i == 3 && value != 0) || (i == 2 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Lakhs ";
+          }
+          if ((i == 5 && value != 0) || (i == 4 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Thousand ";
+          }
+          if (i == 6 && value != 0 && (n_array[i + 1] != 0 && n_array[i + 2] != 0)) {
+              words_string += "Hundred and ";
+          } else if (i == 6 && value != 0) {
+              words_string += "Hundred ";
+          }
+      }
+      words_string = words_string.split("  ").join(" ");
+  }
+  document.getElementById('id_mrm_amt_in_word11').value = words_string;
+}
+
+
+
+
+
+
+
+{% comment %} Amount in Word Twel {% endcomment %}
+
+function ConvertNumberToWords12(number) {
+  var words = new Array();
+  words[0] = '';
+  words[1] = 'One';
+  words[2] = 'Two';
+  words[3] = 'Three';
+  words[4] = 'Four';
+  words[5] = 'Five';
+  words[6] = 'Six';
+  words[7] = 'Seven';
+  words[8] = 'Eight';
+  words[9] = 'Nine';
+  words[10] = 'Ten';
+  words[11] = 'Eleven';
+  words[12] = 'Twelve';
+  words[13] = 'Thirteen';
+  words[14] = 'Fourteen';
+  words[15] = 'Fifteen';
+  words[16] = 'Sixteen';
+  words[17] = 'Seventeen';
+  words[18] = 'Eighteen';
+  words[19] = 'Nineteen';
+  words[20] = 'Twenty';
+  words[30] = 'Thirty';
+  words[40] = 'Forty';
+  words[50] = 'Fifty';
+  words[60] = 'Sixty';
+  words[70] = 'Seventy';
+  words[80] = 'Eighty';
+  words[90] = 'Ninety';
+  number = number.toString();
+  var atemp = number.split(".");
+  var number = atemp[0].split(",").join("");
+  var n_length = number.length;
+  var words_string = "";
+  if (n_length <= 9) {
+      var n_array = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0);
+      var received_n_array = new Array();
+      for (var i = 0; i < n_length; i++) {
+          received_n_array[i] = number.substr(i, 1);
+      }
+      for (var i = 9 - n_length, j = 0; i < 9; i++ , j++) {
+          n_array[i] = received_n_array[j];
+      }
+      for (var i = 0, j = 1; i < 9; i++ , j++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              if (n_array[i] == 1) {
+                  n_array[j] = 10 + parseInt(n_array[j]);
+                  n_array[i] = 0;
+              }
+          }
+      }
+      value = "";
+      for (var i = 0; i < 9; i++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              value = n_array[i] * 10;
+          } else {
+              value = n_array[i];
+          }
+          if (value != 0) {
+              words_string += words[value] + " ";
+          }
+          if ((i == 1 && value != 0) || (i == 0 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Crores ";
+          }
+          if ((i == 3 && value != 0) || (i == 2 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Lakhs ";
+          }
+          if ((i == 5 && value != 0) || (i == 4 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Thousand ";
+          }
+          if (i == 6 && value != 0 && (n_array[i + 1] != 0 && n_array[i + 2] != 0)) {
+              words_string += "Hundred and ";
+          } else if (i == 6 && value != 0) {
+              words_string += "Hundred ";
+          }
+      }
+      words_string = words_string.split("  ").join(" ");
+  }
+  document.getElementById('id_mrm_amt_in_word12').value = words_string;
+}
+
+
+
+
+
+
+
+{% comment %} Amount in Word Therteen {% endcomment %}
+
+function ConvertNumberToWords13(number) {
+  var words = new Array();
+  words[0] = '';
+  words[1] = 'One';
+  words[2] = 'Two';
+  words[3] = 'Three';
+  words[4] = 'Four';
+  words[5] = 'Five';
+  words[6] = 'Six';
+  words[7] = 'Seven';
+  words[8] = 'Eight';
+  words[9] = 'Nine';
+  words[10] = 'Ten';
+  words[11] = 'Eleven';
+  words[12] = 'Twelve';
+  words[13] = 'Thirteen';
+  words[14] = 'Fourteen';
+  words[15] = 'Fifteen';
+  words[16] = 'Sixteen';
+  words[17] = 'Seventeen';
+  words[18] = 'Eighteen';
+  words[19] = 'Nineteen';
+  words[20] = 'Twenty';
+  words[30] = 'Thirty';
+  words[40] = 'Forty';
+  words[50] = 'Fifty';
+  words[60] = 'Sixty';
+  words[70] = 'Seventy';
+  words[80] = 'Eighty';
+  words[90] = 'Ninety';
+  number = number.toString();
+  var atemp = number.split(".");
+  var number = atemp[0].split(",").join("");
+  var n_length = number.length;
+  var words_string = "";
+  if (n_length <= 9) {
+      var n_array = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0);
+      var received_n_array = new Array();
+      for (var i = 0; i < n_length; i++) {
+          received_n_array[i] = number.substr(i, 1);
+      }
+      for (var i = 9 - n_length, j = 0; i < 9; i++ , j++) {
+          n_array[i] = received_n_array[j];
+      }
+      for (var i = 0, j = 1; i < 9; i++ , j++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              if (n_array[i] == 1) {
+                  n_array[j] = 10 + parseInt(n_array[j]);
+                  n_array[i] = 0;
+              }
+          }
+      }
+      value = "";
+      for (var i = 0; i < 9; i++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              value = n_array[i] * 10;
+          } else {
+              value = n_array[i];
+          }
+          if (value != 0) {
+              words_string += words[value] + " ";
+          }
+          if ((i == 1 && value != 0) || (i == 0 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Crores ";
+          }
+          if ((i == 3 && value != 0) || (i == 2 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Lakhs ";
+          }
+          if ((i == 5 && value != 0) || (i == 4 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Thousand ";
+          }
+          if (i == 6 && value != 0 && (n_array[i + 1] != 0 && n_array[i + 2] != 0)) {
+              words_string += "Hundred and ";
+          } else if (i == 6 && value != 0) {
+              words_string += "Hundred ";
+          }
+      }
+      words_string = words_string.split("  ").join(" ");
+  }
+  document.getElementById('id_mrm_amt_in_word13').value = words_string;
+}
+
+
+
+
+
+
+
+{% comment %} Amount in Word Fourteen {% endcomment %}
+
+function ConvertNumberToWords14(number) {
+  var words = new Array();
+  words[0] = '';
+  words[1] = 'One';
+  words[2] = 'Two';
+  words[3] = 'Three';
+  words[4] = 'Four';
+  words[5] = 'Five';
+  words[6] = 'Six';
+  words[7] = 'Seven';
+  words[8] = 'Eight';
+  words[9] = 'Nine';
+  words[10] = 'Ten';
+  words[11] = 'Eleven';
+  words[12] = 'Twelve';
+  words[13] = 'Thirteen';
+  words[14] = 'Fourteen';
+  words[15] = 'Fifteen';
+  words[16] = 'Sixteen';
+  words[17] = 'Seventeen';
+  words[18] = 'Eighteen';
+  words[19] = 'Nineteen';
+  words[20] = 'Twenty';
+  words[30] = 'Thirty';
+  words[40] = 'Forty';
+  words[50] = 'Fifty';
+  words[60] = 'Sixty';
+  words[70] = 'Seventy';
+  words[80] = 'Eighty';
+  words[90] = 'Ninety';
+  number = number.toString();
+  var atemp = number.split(".");
+  var number = atemp[0].split(",").join("");
+  var n_length = number.length;
+  var words_string = "";
+  if (n_length <= 9) {
+      var n_array = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0);
+      var received_n_array = new Array();
+      for (var i = 0; i < n_length; i++) {
+          received_n_array[i] = number.substr(i, 1);
+      }
+      for (var i = 9 - n_length, j = 0; i < 9; i++ , j++) {
+          n_array[i] = received_n_array[j];
+      }
+      for (var i = 0, j = 1; i < 9; i++ , j++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              if (n_array[i] == 1) {
+                  n_array[j] = 10 + parseInt(n_array[j]);
+                  n_array[i] = 0;
+              }
+          }
+      }
+      value = "";
+      for (var i = 0; i < 9; i++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              value = n_array[i] * 10;
+          } else {
+              value = n_array[i];
+          }
+          if (value != 0) {
+              words_string += words[value] + " ";
+          }
+          if ((i == 1 && value != 0) || (i == 0 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Crores ";
+          }
+          if ((i == 3 && value != 0) || (i == 2 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Lakhs ";
+          }
+          if ((i == 5 && value != 0) || (i == 4 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Thousand ";
+          }
+          if (i == 6 && value != 0 && (n_array[i + 1] != 0 && n_array[i + 2] != 0)) {
+              words_string += "Hundred and ";
+          } else if (i == 6 && value != 0) {
+              words_string += "Hundred ";
+          }
+      }
+      words_string = words_string.split("  ").join(" ");
+  }
+  document.getElementById('id_mrm_amt_in_word14').value = words_string;
+}
+
+
+
+
+
+
+
+{% comment %} Amount in Word Fifteen {% endcomment %}
+
+function ConvertNumberToWords15(number) {
+  var words = new Array();
+  words[0] = '';
+  words[1] = 'One';
+  words[2] = 'Two';
+  words[3] = 'Three';
+  words[4] = 'Four';
+  words[5] = 'Five';
+  words[6] = 'Six';
+  words[7] = 'Seven';
+  words[8] = 'Eight';
+  words[9] = 'Nine';
+  words[10] = 'Ten';
+  words[11] = 'Eleven';
+  words[12] = 'Twelve';
+  words[13] = 'Thirteen';
+  words[14] = 'Fourteen';
+  words[15] = 'Fifteen';
+  words[16] = 'Sixteen';
+  words[17] = 'Seventeen';
+  words[18] = 'Eighteen';
+  words[19] = 'Nineteen';
+  words[20] = 'Twenty';
+  words[30] = 'Thirty';
+  words[40] = 'Forty';
+  words[50] = 'Fifty';
+  words[60] = 'Sixty';
+  words[70] = 'Seventy';
+  words[80] = 'Eighty';
+  words[90] = 'Ninety';
+  number = number.toString();
+  var atemp = number.split(".");
+  var number = atemp[0].split(",").join("");
+  var n_length = number.length;
+  var words_string = "";
+  if (n_length <= 9) {
+      var n_array = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0);
+      var received_n_array = new Array();
+      for (var i = 0; i < n_length; i++) {
+          received_n_array[i] = number.substr(i, 1);
+      }
+      for (var i = 9 - n_length, j = 0; i < 9; i++ , j++) {
+          n_array[i] = received_n_array[j];
+      }
+      for (var i = 0, j = 1; i < 9; i++ , j++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              if (n_array[i] == 1) {
+                  n_array[j] = 10 + parseInt(n_array[j]);
+                  n_array[i] = 0;
+              }
+          }
+      }
+      value = "";
+      for (var i = 0; i < 9; i++) {
+          if (i == 0 || i == 2 || i == 4 || i == 7) {
+              value = n_array[i] * 10;
+          } else {
+              value = n_array[i];
+          }
+          if (value != 0) {
+              words_string += words[value] + " ";
+          }
+          if ((i == 1 && value != 0) || (i == 0 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Crores ";
+          }
+          if ((i == 3 && value != 0) || (i == 2 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Lakhs ";
+          }
+          if ((i == 5 && value != 0) || (i == 4 && value != 0 && n_array[i + 1] == 0)) {
+              words_string += "Thousand ";
+          }
+          if (i == 6 && value != 0 && (n_array[i + 1] != 0 && n_array[i + 2] != 0)) {
+              words_string += "Hundred and ";
+          } else if (i == 6 && value != 0) {
+              words_string += "Hundred ";
+          }
+      }
+      words_string = words_string.split("  ").join(" ");
+  }
+  document.getElementById('id_mrm_amt_in_word15').value = words_string;
+}
+
+
+</script>
+
+
+
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script>
+    {% for msg in messages %}
+    swal("Done", "{{msg}}", "success");
+  {% endfor %}
+  </script> 
+
+{% endblock margin_money %}

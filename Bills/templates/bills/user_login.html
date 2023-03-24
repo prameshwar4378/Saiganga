@@ -1,0 +1,192 @@
+{% load crispy_forms_tags %}
+{% load static %}
+<html>
+<head>
+    <title>login</title>
+</head>
+
+
+    {% comment %} #link for Responsive {% endcomment %}
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="John Doe">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+ {% block Links %}{% endblock Links %}
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+   
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+ {% comment %} #link for animation {% endcomment %}
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+   
+  
+    <style>
+
+      
+	body{
+    background: url({% static 'images/tractor1.jpg' %});
+    background-size: cover;
+    background-position: center;
+    }
+
+    
+    h4
+    {
+    font-family: 'Akaya Telivigala', cursive;
+    font-family: 'Signika Negative', sans-serif;
+    }
+
+    
+    .table_scroll{
+      height:450px;
+      overflow-x:scroll;
+      overflow-y:scroll;
+  }
+  .table{
+    min-width: max-content;
+  }
+  th{
+    background-color: #7A0355;
+  }
+
+  .form_heading{
+    background-color: #DADCDC;
+    width:100%;
+    color:#4F5050;
+    padding:5px 0px 5px 20px;
+    border-radius:3px;
+  }
+
+  .bgcolor{
+    background-color:#7A0355 
+  }
+  .btnbg{
+    background-color:#7A0355; 
+    color:white;
+
+  }
+  .btnbg:hover{
+    background-color:#930B69;  
+    color:white;
+  }
+
+  .alertbg{
+    background-color:#E0AAD0  ;  
+
+  }
+
+  .align-style{
+    margin-top:150px;
+  }
+
+  .img_profile{
+    height:50%;
+    width:50%;
+    border-radius:200px;
+    box-shadow:10px 10px 20px;
+  }
+
+  .radius{
+    border-radius:200px;
+  }
+    </style>
+    
+
+<body>
+    
+<div class="container">
+    
+    {% comment %} <div class="row alert alertbg mt-2 text-center">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10 mt-2"><h4 class="">User Login</h4></div>
+      <div class="col-sm-1"></div>
+      </div>
+      
+    <form action="" method="post">{% csrf_token %}
+    <div class="row">
+        <div class="col-sm-12">{{form|crispy}}</div>
+    </div>
+   
+    <div class="row text-center">
+        <div class="col-sm-12">
+        <input type="submit" value="Login" class="btn btnbg px-5 py-2">
+    </div>
+    </div>
+</form> {% endcomment %}
+
+<div class="row align-style">
+  <div class="col-sm-3"></div>
+    <div class="col-sm-6 align-middle">
+    <div class="col-md mt-2"  data-aos="zoom-in" data-aos-delay="200" data-aos-duration="1000">
+      <div class="card text-center text-white"  style="background-color: rgba(75, 10, 3, 0.4);">
+          <div class="card-header alertbg">
+            <b> Login </b>
+          </div>
+          <div class="card-header py-4 text-left opacity-25" style="background-color: rgba(245, 245, 245,   0.4);">
+            <center><img src="https://icon-library.com/images/management-icon/management-icon-5.jpg" alt="" height="100" width="100"></center>
+            <p style="opacity: 0.1;">
+
+    <form action="" method="post">{% csrf_token %}
+            {{form|crispy}}
+          </p>
+            <button class="btn btnbg mt-2" style="width:100%; border-radius:30px;" >Login</button><br><br>
+          </form>
+            <b> <a href=""  style="decorator:none; color:white;" data-toggle="modal" data-target="#contact_model">Contact to Administrator ...! </a> <br>
+             <a href="{% url 'index' %}" style="decorator:none; color:white;"> Back to home</b></a>
+          </div>
+      </div>
+   </div>
+  </div>
+
+  <div class="col-sm-3"></div>
+</div>
+</div>
+
+
+ <!--Profile Modal -->
+ <div class="modal fade" id="contact_model" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header bgcolor">
+        <h4 class="modal-title text-white" id="exampleModalLongTitle">Profile</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="{% static 'images/yogesh.jpg' %}" alt="" class="img_profile"><br><br>
+        <h5>Name :Mr.Yogesh Karale</h5>
+        <h5>Contact :+91-9158593660</h5>
+        <hr style="border:10px">
+       </div>
+      <div class="modal-footer">
+        <button  type="button" class="btn bgcolor text-white px-3" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script>
+    {% for msg in messages %}
+    swal("", "{{msg}}", "error");
+  {% endfor %}
+  </script>
+  
+  
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+  </script>
+
+</body>
+</html>
+

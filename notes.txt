@@ -1,0 +1,3 @@
+primary : #df0066
+primary medium : #79092f
+primary dark : #240000

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+{% load crispy_forms_tags %}
+{% load static %}
+<html>
+<head>
+  <title>Products</title>
+</head>
+ 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+ 
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/shopping_css.css' %}">
+<style type="text/css">
+
+	#button{
+		background:-webkit-linear-gradient(bottom, #D7FA10, #0A6207) ;
+		border-radius: 5px;
+		width:125px;
+		border: 2px solid gray;
+		transition: 0.4s;
+		height: 40px;
+		margin-left: 10px;
+		color: #000000;
+		box-shadow: 0px 5px 10px black;
+		padding-top: 10px;
+		
+
+	}
+	#button:hover{
+		color: color;
+		background: -webkit-linear-gradient(bottom, #F71F09, #5E0D05) ;
+		border-radius: 5px;
+		width:100px;
+		border: 2px solid black;
+		/*transform: translateY(100);*/
+		transform: translateY(-20%);
+		width: 150px;
+		height: 50px;
+		color: white;
+		box-shadow: 0px 5px 10px black;
+		font-size: 20px;
+
+
+	}
+	.buttons{
+		float: left;
+		margin-left: 12%;
+		margin-top: 10%;
+	}
+	
+	@media screen and (max-width: 770px){
+		#button{
+		background:-webkit-linear-gradient(bottom, #D7FA10, #0A6207) ;
+		border-radius: 5px;
+		width:100px;
+		border: 2px solid gray;
+		transition: 0.4s;
+		height: 40px;
+		/*margin-left: px;*/
+		color: #000000;
+		box-shadow: 0px 5px 10px black;
+		margin-right: 80px;
+	}
+	#button:hover{
+		color: color;
+		background: -webkit-linear-gradient(bottom, #F71F09, #5E0D05) ;
+		border-radius: 5px;
+		width:100px;
+		border: 2px solid black;
+		/*transform: translateY(100);*/
+		transform: translateY(-20%);
+		width: 110px;
+		height: 50px;
+		color: white;
+		box-shadow: 0px 5px 10px black;
+
+
+	}
+	.buttons{
+		float: left;
+		margin-left: 12%;
+		margin-top: 10%;
+		display: flex;
+		flex-direction: column;
+	}
+	
+}
+
+
+</style>
+<body>
+	<div >
+
+
+    <section id="banner" style="background: url({% static 'img/background.jpg' %}); background-size: cover; background-position: center; height: 100vh;">
+
+	<img src="{% static 'img/logo.png' %}" class="logo">
+	<div class="banner-text">
+
+	<h1 data-aos="slide-up" style="font-weight:bold;">SAIGANGA ENTERPRISES, Vaijapur</h1>
+	
+<div class="buttons" >
+	<a id="button" href="{% url 'index' %}" data-aos="fade-down" >Home </a>
+	<a id="button" href="#" data-aos="fade-up"  >Photos</a>
+	<a id="button" href="{% url 'contact_us' %}" data-aos="zoom-up"  >Contact_Us  </a>
+	</div>
+	</div>
+</section>
+</div>
+
+<div class="section-header">
+		<h1 style="font-family: 'Big Shoulders Stencil Text', cursive;"  data-aos="flip-down">Our Products</h1><br>
+<!-- 		<img src="car.jpg"  width="50px" hidden="50px"> -->
+	</div>
+	<center>
+<!-- Section Line 1 -->
+
+<section class="wrapper">
+	<div class="Team-member" data-aos="flip-down">
+		<img src="{% static 'img/products/tractor1.png' %}"><br>
+		<p1>P-Code : 72004011</p1>
+		<h3>Captain Tractor</h3>
+		<p>200DI-4WD 20-HP</p>
+		<a href="#" data-toggle="modal" data-target="#exampleModalCenter">Order Now</a>
+		<p>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+		</p>
+	</div>
+
+
+	<div class="Team-member" data-aos="flip-down">
+		<img src="{% static 'img/products/25.png' %}"><br>
+		<p1>P-Code : 72502082/72504041</p1>
+		<h3>Captain Tractor</h3>
+		<p>250DI-4WD 25-HP</p>
+		<a href="#" data-toggle="modal" data-target="#exampleModalCenter">Order Now</a>
+		<p>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+		</p>
+	</div>
+
+
+	<div class="Team-member" data-aos="flip-down">
+		<img src="{% static 'img/products/28.png' %}"><br>
+		<p1>P-Code : 72802070/72804056</p1>
+		<h3>Captain Tractor</h3>
+		<p>280DI-4WD 28-HP</p>
+		<a href="#" data-toggle="modal" data-target="#exampleModalCenter">Order Now</a>
+		<p>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+		</p>
+	</div>
+
+
+	<div class="Team-member" data-aos="flip-down">
+		<img src="{% static 'img/products/culti.png' %}"><br>
+		<p1>P-Code : CCTST/5/7</p1>
+		<h3>Cultivator</h3>
+		<p>Cultivator 7 bled</p>
+		<a href="#" data-toggle="modal" data-target="#exampleModalCenter">Order Now</a>
+		<p>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+		</p>
+	</div>
+
+</center>
+</section>
+
+<!-- Section Line 2 -->
+
+
+<section class="wrapper">
+	<div class="Team-member" data-aos="flip-down">
+		<img src="{% static 'img/products/roter.jpg' %}"><br>
+		<p1>P-Code : CRT08/1.0/1.2</p1>
+		<h3>Rotary</h3>
+		<p>42,36 Bled</p>
+		<a href="#" data-toggle="modal" data-target="#exampleModalCenter">Order Now</a>
+		<p>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+		</p>
+	</div>
+
+	<div class="Team-member" data-aos="flip-down">
+		<img src="{% static 'img/products/trolly.jpg' %}"><br>
+		<p1>P-Code : CT/60/40</p1>
+		<h3>Trolly</h3>
+		<p>2 Wheeler</p>
+		<a href="#" data-toggle="modal" data-target="#exampleModalCenter">Order Now</a>
+		<p>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+		</p>
+	</div>
+
+
+	<div class="Team-member" data-aos="flip-down">
+		<img src="{% static 'img/products/seed.jpg' %}"><br>
+		<p1>P-Code : CSFD/5/7</p1>
+		<h3>Seed Dreel </h3>
+		<p>Perani Yantra</p>
+         <a href="#" data-toggle="modal" data-target="#exampleModalCenter">Order Now</a>
+		<p>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+		</p>
+	</div>
+
+
+	<div class="Team-member" data-aos="flip-down">
+		<img src="{% static 'img/products/boom.jpg' %}"><br>
+		<p1>P-Code : CSPV300</p1>
+		<h3>Boom Sprayer</h3>
+		<p>Vertical</p>
+		<a href="#" data-toggle="modal" data-target="#exampleModalCenter">Order Now</a>
+		<p>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+		</p>
+	</div>
+
+</center>
+</section>
+
+
+<!-- Section Line 3 -->
+
+
+
+<section class="wrapper">
+	<div class="Team-member" data-aos="flip-down">
+		<img src="{% static 'img/products/riper.jpg' %}"><br>
+		<p1>P-Code : CTR1.5</p1>
+		<h3>Ripper</h3>
+		<p>NA</p>
+		<a href="#" data-toggle="modal" data-target="#exampleModalCenter">Order Now</a>
+		<p>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+		</p>
+	</div>
+
+	<div class="Team-member" data-aos="flip-down">
+		<img src="{% static 'img/products/post.jpg' %}"><br>
+		<p1>P-Code : CPHD9</p1>
+		<h3>Posthole Digger</h3>
+		<p>NA</p>
+		<a href="#" data-toggle="modal" data-target="#exampleModalCenter">Order Now</a>
+		<p>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+		</p>
+	</div>
+
+
+	<div class="Team-member" data-aos="flip-down">
+		<img src="{% static 'img/products/plough.jpg' %}"><br>
+		<p1>P-Code : CMBPRH2</p1>
+		<h3>Reversible Plough </h3>
+		<p>Hydrolic/Heavi</p>
+         <a href="#" data-toggle="modal" data-target="#exampleModalCenter">Order Now</a>
+		<p>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+		</p>
+	</div>
+
+
+	<div class="Team-member" data-aos="flip-down">
+		<img src="{% static 'img/products/front.jpg' %}"><br>
+		<p1>P-Code : CTLO</p1>
+		<h3>Front end Loader</h3>
+		<p>NA</p>
+		<a href="#" data-toggle="modal" data-target="#exampleModalCenter">Order Now</a>
+		<p>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+		</p>
+	</div>
+
+</center>
+</section>
+
+
+<!-- Section Line 4 -->
+
+
+
+<section class="wrapper">
+	<div class="Team-member" data-aos="flip-down">
+		<img src="{% static 'img/products/height.jpg' %}"><br>
+		<p1>P-Code : CHA-60</p1>
+		<h3>Height Attachment</h3>
+		<p>NA</p>
+		<a href="#" data-toggle="modal" data-target="#exampleModalCenter">Order Now</a>
+		<p>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+		</p>
+	</div>
+
+	<div class="Team-member" data-aos="flip-down">
+		<img src="{% static 'img/products/chap cutter.jpg' %}"><br>
+		<p1>P-Code : CCC</p1>
+		<h3>Chaff Cutter</h3>
+		<p>NA</p>
+		<a href="#" data-toggle="modal" data-target="#exampleModalCenter">Order Now</a>
+		<p>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+		</p>
+	</div>
+
+
+	<div class="Team-member" data-aos="flip-down">
+		<img src="{% static 'img/products/centrifugal.jpg' %}"><br>
+		<p1>P-Code : CCP4</p1>
+		<h3>Centrifugal Pump </h3>
+		<p>NA</p>
+         <a href="#" data-toggle="modal" data-target="#exampleModalCenter">Order Now</a>
+		<p>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+		</p>
+	</div>
+
+
+	<div class="Team-member" data-aos="flip-down">
+		<img src="{% static 'img/products/boom9.jpg' %}"><br>
+		<p1>P-Code : CSPB/300</p1>
+		<h3>Boom Sprayer 9 Nozzle</h3>
+		<p>Fawarni Yantra</p>
+		<a href="#" data-toggle="modal" data-target="#exampleModalCenter">Order Now</a>
+		<p>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+			<i class="fa fa-star"></i>
+		</p>
+	</div>
+
+</center>
+</section>
+
+
+ 
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalLongTitle">Message</h5>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body">
+			<h2>We are working</h2>
+			<img src="https://blueshiftwebservices.com/images/Gifs/maintenance-resize.gif" alt="" style="width:100%;">
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+
+
+<div class="footer">
+	Saiganga Enterprises, Vaijapur All &#169; Rights Are Reserved <br>
+	 <a href="https://prameshwar4378.github.io/My_Portfolio/" style="background:none; color:white; border:none;"> Design By Rameshwar Pawar</a>
+</div>
+
+
+<center>
+
+
+
+
+
+ <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();{
+    	duration: 15000;
+    	
+    }
+  </script>
+
+
+ 
+    
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+  {% for msg in messages %}
+  swal("Done", "{{msg}}", "success");
+{% endfor %}
+</script>
+
+
+</body>
+</html>

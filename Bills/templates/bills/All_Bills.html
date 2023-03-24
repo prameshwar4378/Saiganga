@@ -1,0 +1,171 @@
+{% extends 'bills/Base.html' %}
+{% load crispy_forms_tags %}
+{% block manage_bills %}
+<div class="container">
+<h4 class="alert alertbg text-center mt-2">Customer Records</h4>
+
+<form action="" method="get">{% csrf_token %}
+<div class="row">
+  <div class="col-sm-6">{{filter.form.branch|as_crispy_field}}</div>
+  <div class="col-sm-6">{{filter.form.cust_name|as_crispy_field}}</div>
+ 
+  <datalist id="cust_list">
+    {% for results in show_cust_list %}
+           <option value="{{ results.cust_name}}">
+    {% endfor %}
+       </datalist>
+</div>
+
+<div class="row">
+  <div class="col-sm-4">{{filter.form.cust_mobile|as_crispy_field}}</div>
+  <div class="col-sm-4">{{filter.form.inv_chessis_1|as_crispy_field}}</div>
+  <div class="col-sm-4">{{filter.form.inv_engine_1|as_crispy_field}}</div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12 text-center">
+    <input type="submit" value="Serach" class="btn btnbg px-5">
+  </div>
+</div>
+</form>
+<br>
+
+  
+<div class="row ">
+  
+  <div class="col-sm-4 mt-2"  data-aos="zoom-in" data-aos-delay="400" data-aos-duration="1000">
+    <div class="card text-center">
+        <div class="card-header alert-dark">
+        <b>No Of Customers</b>
+        </div>
+        <div class="card-header  py-4">
+         <h3 class="card-title"></h3>
+          <h4 class='text-center'><b>{{count}}</b> </h4>
+        </div>
+    </div>
+</div>
+
+  
+<div class="col-sm-4 mt-2"  data-aos="zoom-in" data-aos-delay="400" data-aos-duration="1000">
+  <div class="card text-center">
+      <div class="card-header alert-dark">
+      <b>Export To Excel</b>
+      </div>
+      <div class="card-header  py-4">
+       <h3 class="card-title"></h3>
+       <a href="" class="btn btnbg px-3"  data-aos="flip-up" data-aos-delay="600" data-aos-duration="1000" class="btn btn-success" data-toggle="modal" data-target="#modelExportData">Export</a>
+      </div>
+  </div>
+</div>
+
+
+
+  
+<!-- Modal -->
+<div class="modal fade" id="modelExportData" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header alertbg">
+        <h5 class="modal-title " id="exampleModalLongTitle">Export Data as Excel</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <a href="{% url 'quotation_export' %}" class="btn btnbg mt-2" style="width:40%">Quotation</a> &nbsp;
+        <a href="{% url 'invoice_export' %}" class="btn btnbg mt-2" style="width:40%">Invoice</a> &nbsp; <br>
+        <a href="{% url 'delivery_challan_export' %}" class="btn btnbg mt-2" style="width:40%">Margin Money</a> &nbsp;
+        <a href="{% url 'margin_money_export' %}" class="btn btnbg mt-2" style="width:40%">Delivery Challan</a> &nbsp;
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+<div class="col-sm-4 mt-2"  data-aos="zoom-in" data-aos-delay="400" data-aos-duration="1000">
+  <div class="card text-center">
+      <div class="card-header alert-dark">
+      <b>Other</b>
+      </div>
+      <div class="card-header  py-4">
+       <h3 class="card-title"></h3>
+       <a href="" class="btn btnbg"  data-aos="flip-up" data-aos-delay="600" data-aos-duration="1000" class="btn btn-success">---</a>
+      </div>
+  </div>
+</div>
+
+ </div>
+  
+
+ <br>
+
+<div class="table_scroll">
+    <table class="table table-hover table_scroll">
+        {% if rec %}
+        <thead>
+          <tr>
+            <th scope="col" class="text-center text-white">ID</th>
+            <th scope="col" class="text-center text-white">Customer Name</th>
+            <th scope="col" class="text-center text-white">Mobile</th>
+            <th scope="col" class="text-center text-white">Village</th>
+            <th scope="col" class="text-center text-white">Taluka</th>
+            <th scope="col" class="text-center text-white">Dist</th>
+            <th scope="col" class="text-center text-white">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for i in rec %}
+          <tr class="text-center">      
+            <td>{{i.id}}</td>
+            <td>{{i.cust_name}}</td>
+            <td>{{i.cust_mobile}}</td>
+            <td>{{i.cust_village}}</td>
+            <td>{{i.cust_taluka}}</td>
+            <td>{{i.cust_dist}}</td>
+
+            <td>
+                <a href="{% url 'customer_dashboard' i.id %}" class="btn btn-primary px-3">Manage</a>
+            <a href="{% url 'delete_customer' i.id %}" class="btn btn-danger">Delete</a></td>
+            
+            {% comment %} <form action="{% url 'delete_data' x.id %}" method='POST' class="d-inline" novalidate>
+                {% csrf_token %}
+                <input type="submit" value="Delete" class="btn btn-danger"></td>
+              </form> {% endcomment %}
+          </tr>
+
+
+          
+
+
+  
+        {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+            <h5 class="text-center text-secondary mt-6">No Record Found</h5>
+      {% endif %}
+
+      
+    </div>
+</div>
+
+
+
+  
+  
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script>
+    {% for msg in messages %}
+    swal("Done", "{{msg}}", "success");
+  {% endfor %}
+  </script>
+
+
+
+{% endblock manage_bills %}

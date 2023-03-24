@@ -1,0 +1,239 @@
+
+{% load static %}
+<html>
+    <head>
+        <title>Print Invoice</title>
+    </head>
+    <link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<style>
+    *{
+        font-family: 'Karla', sans-serif;
+    }
+    .logo{
+        width:90%;
+    }
+    h2{
+        font-family: 'Secular One', sans-serif;
+    }
+ 
+</style>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center" style="border:2px solid black; border-bottom:none;"><b>QUOTATION</b></div>
+        </div>
+
+        <div class="row " style="border:2px solid black; ">
+            <div class="col-sm-2 text-right"  >
+                <img src="{% static 'images/logo1.png' %}" alt="" class="logo">
+            </div>
+            <div class="col-sm-8 text-center" class="" >
+                <h2 class="mt-2">SAIGANGA ENTERPRISES</h2> 
+             {% if data.branch == "Vaijapur" %} subhadra complex,ladgaon road, vaijapur, Ta.Vaijapur, Dist,Aurangabad,423701 {% else %}Near HP Petrol Pump,Aurangabad Road, Gangapur {% endif %}  <br>
+                Mob No :- 9158593660/9021173110 GSTIN No :- 27COKPKL924H1ZV
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+
+        <div class="row" style="border:2px solid black; border-top:none; pt-2 ">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-5"> QUOTATION NO :- <b>{{data.qtn_no}}  </b> </div>
+            <div class="col-sm-5 text-right">Date :- {% if data.qtn_date %} <b>{{data.qtn_date}}</b>{% endif %} </div>
+            <div class="col-sm-1"></div>
+        </div>
+
+        <div class="row" style="border:2px solid black; border-top:none;  padding-top:5px;">
+            <div class="col-sm-1 "></div>
+            <div class="col-sm-6"  style="border-right:2px solid black;  ">
+                Name : <b>{{data.cust_name}}</b> <br>
+                Village : <b> {{data.cust_village}}</b><br>
+                Taluka :<b> {{data.cust_taluka}}</b> <br>
+                Dist :<b>{{data.cust_dist}} </b> <br>
+                Mobile :<b>{{data.cust_mobile}} </b> <br>
+                State :<b> Maharashtra</b>
+               
+            </div>
+            <div class="col-sm-4 text-center" style=""><br><br>
+                Bank <br>
+                <b>SBI Bank</b>
+            </div>
+
+        </div>
+
+
+        <div class="row text-center"  style="border:2px solid black; border-top:none; padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black;"><b> Sr.No </b></div>
+            <div class="col-sm-6" style="border-right:2px solid black;"><b> Description </b></div>
+            <div class="col-sm-1" style="border-right:2px solid black;"><b> Qty </b></div>
+            <div class="col-sm-2" style="border-right:2px solid black;"><b> rate </b></div>
+            <div class="col-sm-2" style=""><b> Amount </b></div>
+        </div> 
+        
+ 
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black;  padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black;">{% if data.qtn_description1 %}1{% endif %} &nbsp;</div>
+            <div class="col-sm-6" style="border-right:2px solid black;">{% if data.qtn_description1 %}{{data.qtn_description1}}{% endif %}</div>
+            <div class="col-sm-1 " style="border-right:2px solid black; ">{% if data.qtn_qty1 %}{{data.qtn_qty1}}{% endif %}</div>
+            <div class="col-sm-2 " style="border-right:2px solid black; ">{% if data.qtn_rate1 %}{{data.qtn_rate1}}0{% endif %}</div>
+            <div class="col-sm-2" style=""><b>{% if data.qtn_amt1 %}{{data.qtn_amt1}}0{% endif %}</b></div>
+        </div>
+        
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black;  padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black;">{% if data.qtn_description2 %}2{% endif %} &nbsp;</div>
+            <div class="col-sm-6" style="border-right:2px solid black;">{% if data.qtn_description2 %}{{data.qtn_description2}}{% endif %}</div>
+            <div class="col-sm-1 " style="border-right:2px solid black; ">{% if data.qtn_qty2 %}{{data.qtn_qty2}}{% endif %}</div>
+            <div class="col-sm-2 " style="border-right:2px solid black; ">{% if data.qtn_rate2 %}{{data.qtn_rate2}}0{% endif %}</div>
+            <div class="col-sm-2" style=""><b>{% if data.qtn_amt2 %}{{data.qtn_amt2}}0{% endif %}</b></div>
+        </div>
+        
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black;  padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black;">{% if data.qtn_description3 %}3{% endif %} &nbsp;</div>
+            <div class="col-sm-6" style="border-right:2px solid black;">{% if data.qtn_description3 %}{{data.qtn_description3}}{% endif %}</div>
+            <div class="col-sm-1 " style="border-right:2px solid black; ">{% if data.qtn_qty3 %}{{data.qtn_qty3}}{% endif %}</div>
+            <div class="col-sm-2 " style="border-right:2px solid black; ">{% if data.qtn_rate3 %}{{data.qtn_rate3}}0{% endif %}</div>
+            <div class="col-sm-2" style=""><b>{% if data.qtn_amt3 %}{{data.qtn_amt3}}0{% endif %}</b></div>
+        </div>
+        
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black;  padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black;">{% if data.qtn_description4 %}4{% endif %} &nbsp;</div>
+            <div class="col-sm-6" style="border-right:2px solid black;">{% if data.qtn_description4 %}{{data.qtn_description4}}{% endif %}</div>
+            <div class="col-sm-1 " style="border-right:2px solid black; ">{% if data.qtn_qty4 %}{{data.qtn_qty4}}{% endif %}</div>
+            <div class="col-sm-2 " style="border-right:2px solid black; ">{% if data.qtn_rate4 %}{{data.qtn_rate4}}0{% endif %}</div>
+            <div class="col-sm-2" style=""><b>{% if data.qtn_amt4 %}{{data.qtn_amt4}}0{% endif %}</b></div>
+        </div>
+        
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black;  padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black;">{% if data.qtn_description5 %}5{% endif %} &nbsp;</div>
+            <div class="col-sm-6" style="border-right:2px solid black;">{% if data.qtn_description5 %}{{data.qtn_description5}}{% endif %}</div>
+            <div class="col-sm-1 " style="border-right:2px solid black; ">{% if data.qtn_qty5 %}{{data.qtn_qty5}}{% endif %}</div>
+            <div class="col-sm-2 " style="border-right:2px solid black; ">{% if data.qtn_rate5 %}{{data.qtn_rate5}}0{% endif %}</div>
+            <div class="col-sm-2" style=""><b>{% if data.qtn_amt5 %}{{data.qtn_amt5}}0{% endif %}</b></div>
+        </div>
+        
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black;  padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black;">{% if data.qtn_description6 %}6{% endif %} &nbsp;</div>
+            <div class="col-sm-6" style="border-right:2px solid black;">{% if data.qtn_description6 %}{{data.qtn_description6}}{% endif %}</div>
+            <div class="col-sm-1 " style="border-right:2px solid black; ">{% if data.qtn_qty6 %}{{data.qtn_qty6}}{% endif %}</div>
+            <div class="col-sm-2 " style="border-right:2px solid black; ">{% if data.qtn_rate6 %}{{data.qtn_rate6}}0{% endif %}</div>
+            <div class="col-sm-2" style=""><b>{% if data.qtn_amt6 %}{{data.qtn_amt6}}0{% endif %}</b></div>
+        </div>
+        
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black;  padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black;">{% if data.qtn_description7 %}7{% endif %} &nbsp;</div>
+            <div class="col-sm-6" style="border-right:2px solid black;">{% if data.qtn_description7 %}{{data.qtn_description7}}{% endif %}</div>
+            <div class="col-sm-1 " style="border-right:2px solid black; ">{% if data.qtn_qty7 %}{{data.qtn_qty7}}{% endif %}</div>
+            <div class="col-sm-2 " style="border-right:2px solid black; ">{% if data.qtn_rate7 %}{{data.qtn_rate7}}0{% endif %}</div>
+            <div class="col-sm-2" style=""><b>{% if data.qtn_amt7 %}{{data.qtn_amt7}}0{% endif %}</b></div>
+        </div>
+        
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black;  padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black;">{% if data.qtn_description8 %}8{% endif %} &nbsp;</div>
+            <div class="col-sm-6" style="border-right:2px solid black;">{% if data.qtn_description8 %}{{data.qtn_description8}}{% endif %}</div>
+            <div class="col-sm-1 " style="border-right:2px solid black; ">{% if data.qtn_qty8 %}{{data.qtn_qty8}}{% endif %}</div>
+            <div class="col-sm-2 " style="border-right:2px solid black; ">{% if data.qtn_rate8 %}{{data.qtn_rate8}}0{% endif %}</div>
+            <div class="col-sm-2" style=""><b>{% if data.qtn_amt8 %}{{data.qtn_amt8}}0{% endif %}</b></div>
+        </div>
+        
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black;  padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black;">{% if data.qtn_description9 %}9{% endif %} &nbsp;</div>
+            <div class="col-sm-6" style="border-right:2px solid black;">{% if data.qtn_description9 %}{{data.qtn_description9}}{% endif %}</div>
+            <div class="col-sm-1 " style="border-right:2px solid black; ">{% if data.qtn_qty9 %}{{data.qtn_qty9}}{% endif %}</div>
+            <div class="col-sm-2 " style="border-right:2px solid black; ">{% if data.qtn_rate9 %}{{data.qtn_rate9}}0{% endif %}</div>
+            <div class="col-sm-2" style=""><b>{% if data.qtn_amt9 %}{{data.q9n_amt9}}0{% endif %}</b></div>
+        </div>
+        
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black;  padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black;">{% if data.qtn_description10 %}10{% endif %} &nbsp;</div>
+            <div class="col-sm-6" style="border-right:2px solid black;">{% if data.qtn_description10 %}{{data.qtn_description10}}{% endif %}</div>
+            <div class="col-sm-1 " style="border-right:2px solid black; ">{% if data.qtn_qty10 %}{{data.qtn_qty10}}{% endif %}</div>
+            <div class="col-sm-2 " style="border-right:2px solid black; ">{% if data.qtn_rate10 %}{{data.qtn_rate10}}0{% endif %}</div>
+            <div class="col-sm-2" style=""><b>{% if data.qtn_amt10 %}{{data.qtn_amt10}}0{% endif %}</b></div>
+        </div>
+        
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black;  padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black;"> &nbsp;</div>
+            <div class="col-sm-6" style="border-right:2px solid black;"></div>
+            <div class="col-sm-1 " style="border-right:2px solid black; "></div>
+            <div class="col-sm-2 " style="border-right:2px solid black; "></div>
+            <div class="col-sm-2" style=""><b></b></div>
+        </div>
+        
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black;  padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black;"> &nbsp;</div>
+            <div class="col-sm-6" style="border-right:2px solid black;"></div>
+            <div class="col-sm-1 " style="border-right:2px solid black; "></div>
+            <div class="col-sm-2 " style="border-right:2px solid black; "></div>
+            <div class="col-sm-2" style=""><b></b></div>
+        </div>
+        
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black;  padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black;"> &nbsp;</div>
+            <div class="col-sm-6" style="border-right:2px solid black;"></div>
+            <div class="col-sm-1 " style="border-right:2px solid black; "></div>
+            <div class="col-sm-2 " style="border-right:2px solid black; "></div>
+            <div class="col-sm-2" style=""><b></b></div>
+        </div>
+        
+        <div class="row text-center"  style="border-left:2px solid black; border-right:2px solid black;  padding-top:3px; padding-bottom:3px" >
+            <div class="col-sm-1" style="border-right:2px solid black;"> &nbsp;</div>
+            <div class="col-sm-6" style="border-right:2px solid black;"></div>
+            <div class="col-sm-1 " style="border-right:2px solid black; "></div>
+            <div class="col-sm-2 " style="border-right:2px solid black; "></div>
+            <div class="col-sm-2" style=""><b></b></div>
+        </div>
+        
+
+        <div class="row text-center"  style="border:2px solid black;  " >
+            <div class="col-sm-1" style="border-right:2px solid black;">&nbsp;</div>
+            <div class="col-sm-6" style="border-right:2px solid black;"></div>
+            <div class="col-sm-1" style="border-right:2px solid black; ">Total</div>
+            <div class="col-sm-2" style="border-right:2px solid black; ">Total</div>
+            <div class="col-sm-2" style=""><b> {{data.qtn_total_amount}}0 </b></div>
+        </div>
+
+        <div class="row" style="border:2px solid black; border-top:none;">
+            <div class="col-sm-1" ></div>
+                <div class="col-sm-11" >
+                Amount in Word : <b>{{data.qtn_amt_in_word}}</b>
+            </div>
+        </div>
+
+        
+        <div class="row text-center" style="border:2px solid black; border-top:none;">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10 text-justify"><br>
+                “I/We hereby certify that my/our registration certificateunder the Maharashtra value
+added Tax Act-2002 is in force on the date on which the sale of the goods specified in
+the tax invoice a made by me/us and the transaction of sale covered by this tax invoice
+has been effected by me/us and it shall be accounted for the turnover of sale while filling
+of return and the due tax if any payable on the sale has been paid or shall be paid
+GST No.27COKPK1924H1ZV <br><br>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+
+
+
+        <div class="row text-center"  style="border:2px solid black; border-top:none;">
+            <div class="col-sm-6"><br><b><h5>Accepted Payment</h5></b> </div>
+            <div class="col-sm-6"><br><b><h5>For Saiganga Interprises</h5></b> </div>
+        </div>
+
+            <div class="row text-center"  style="border:2px solid black; border-top:none;">
+                <div class="col-sm-6">
+                    Bank of Baroda, Vaijapur <br>
+                    ACC.Holder Name : Saiganga Enterprises <br>
+                    ACC.No : 46450200000262, IFSC : BARBOVAIJAP
+                </div>
+                <div class="col-sm-6">Authorised Signature  <br><br><br></div>
+            </div>
+            
+    </div>
+    <center><pre style='border:none'>this is computer generated bill</pre>
+    <br>
+    <button onclick="window.print()" class='btn btn-success'>Print</button></center>
+
+</body>
+</html>
